@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <h1>silvia</h1>
+        <h1>{"silvia's"}</h1>
         <button className="burger-menu" onClick={handleBurgerClick}>menu</button>
       </div>
       <div className={`links ${isBurgerOpened ? "opened" : ""}`}>

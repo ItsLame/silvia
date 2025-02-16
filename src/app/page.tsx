@@ -8,7 +8,7 @@ const Home = () => {
       </header>
 
       <main>
-        <p>some paraagraph</p>
+        <p>something on hello...</p>
       </main>
 
       <footer>

@@ -8,7 +8,7 @@ const Contact = () => {
       </header>
 
       <main>
-        <p>something on projects...</p>
+        <p>something on contacts...</p>
       </main>
     </div>
   );
