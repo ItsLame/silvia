@@ -1,20 +1,17 @@
-.home {
-    @apply
-    flex flex-col
-}
+.home,
+.projects,
+.contact{
+  @apply flex flex-col;
 
-.home header {
-    @apply
-    flex
-}
+  header {
+    @apply flex;
+  }
 
-.home main {
-    @apply
-    h-screen px-8 pt-20
-}
+  main {
+    @apply h-screen px-8 pt-20;
+  }
 
-.home footer {
-    @apply
-    py-4 px-8
-    bg-red-400
+  footer {
+    @apply py-4 px-8 bg-red-400;
+  }
 }
