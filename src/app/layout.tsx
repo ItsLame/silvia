@@ -1,20 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Silvia - Software Engineer",
-  description: "Silvia's Portfolio",
+  description: "Silvia's Portfolio - Full Stack Software Engineer",
+  keywords: "Silvia, Silvia Silvia, Silvia Tan, Portfolio, Software Engineer, Full Stack, Startup, Web, Frontend",
 };
 
 const RootLayout = ({
@@ -25,7 +15,7 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={"antialiased"}
       >
         {children}
       </body>

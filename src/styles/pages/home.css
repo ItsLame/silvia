@@ -8,18 +8,10 @@
   }
 
   main {
-    @apply mt-36 mb-auto w-10/12;
+    @apply flex flex-col flex-1 mt-36 w-10/12;
   }
 
   footer {
     @apply mb-9 w-10/12;
-
-    .footer-content {
-      @apply py-4 px-8 bg-red-400 rounded-2xl;
-    }
-
-    .signature {
-      @apply text-center text-xs mt-3;
-    }
   }
 }

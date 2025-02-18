@@ -1,5 +1,4 @@
 @import "@/styles/index.css";
-@import "./fonts.css";
 
 @tailwind base;
 @tailwind components;
@@ -58,4 +57,16 @@ body {
   /*background: url("/bg.jpg") center center;*/
   /*background-size: 100vw auto;*/
   font-family: Poppins, Helvetica, sans-serif;
+}
+
+a {
+  @apply transition-colors duration-200;
+
+  &:hover {
+    @apply text-red-600 dark:text-red-300 transition-colors duration-200;
+  }
+}
+
+h1 {
+  @apply text-2xl font-bold text-red-800 dark:text-red-300;
 }
