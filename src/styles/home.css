@@ -1,14 +1,14 @@
 .home,
 .projects,
 .contact{
-  @apply flex flex-col;
+  @apply flex flex-col items-center;
 
   header {
-    @apply flex;
+    @apply flex justify-center;
   }
 
   main {
-    @apply h-screen px-8 pt-20;
+    @apply h-screen mt-36 w-10/12;
   }
 
   footer {

@@ -1,6 +1,6 @@
 .navbar {
   @apply
-  flex flex-col fixed top-0 py-4 px-8 w-screen min-h-[75px]
+  flex flex-col fixed top-10 py-4 px-8 w-10/12 min-h-[75px] rounded-2xl
 
   bg-red-300
   bg-opacity-30
@@ -9,9 +9,9 @@
   dark:bg-red-800
   dark:bg-opacity-50
 
-  sm:flex-row
-  sm:justify-between
-  sm:items-center;
+  md:flex-row
+  md:justify-between
+  md:items-center;
 
   .logo {
     @apply flex items-center justify-between min-h-[43px];
@@ -23,7 +23,7 @@
     }
 
     .burger-menu {
-      @apply sm:hidden font-medium;
+      @apply md:hidden font-medium;
     }
   }
 
@@ -33,16 +33,18 @@
     max-h-0 gap-2
     overflow-hidden
 
-    sm:flex-row
-    sm:gap-4
-    sm:mt-0
-    sm:max-h-full
+    md:flex-row
+    md:gap-4
+    md:mt-0
+    md:max-h-full
+    md:overflow-visible
 
     transition-[max-height,margin-top]
     duration-300;
 
     &.opened {
-      @apply max-h-[200px] mt-4
+      @apply
+      max-h-60 mt-4
       transition-[max-height,margin-top]
       duration-300;
     }
@@ -62,7 +64,8 @@
       }
 
       &.active,
-      &:active {
+      &:active,
+      &:focus {
         @apply
         shadow-inner
         shadow-red-600
