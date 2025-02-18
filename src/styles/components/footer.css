@@ -1,6 +1,8 @@
 footer {
   .footer-content {
-    @apply py-4 px-8 min-h-[75px] rounded-2xl flex items-center gap-4
+    @apply py-4 px-8 min-h-[75px] rounded-2xl text-sm
+    flex justify-center items-center gap-4
+    flex-col sm:flex-row
 
     bg-red-300
     bg-opacity-30

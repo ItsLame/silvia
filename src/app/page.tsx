@@ -20,6 +20,11 @@ const Home = () => {
         <p>something on hello...</p>
         <p>something on hello...</p>
         <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
       </main>
 
       <footer>

@@ -1,6 +1,6 @@
 .home,
 .projects,
-.contact{
+.contact {
   @apply flex flex-col items-center min-h-screen;
 
   header {
@@ -8,7 +8,7 @@
   }
 
   main {
-    @apply flex flex-col flex-1 mt-36 w-10/12;
+    @apply flex flex-col flex-1 mt-36 mb-9 w-10/12;
   }
 
   footer {

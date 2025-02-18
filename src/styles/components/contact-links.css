@@ -1,0 +1,13 @@
+ul.contact-links {
+  & > li {
+    @apply w-fit mt-2;
+
+    svg {
+      @apply w-5 h-5;
+    }
+  }
+
+  .contact-link {
+    @apply flex items-center gap-4;
+  }
+}
