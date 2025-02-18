@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
+import { IconExternalLink } from "@tabler/icons-react";
 
-const NavbarButton = ({ children, link = "", newTab = false } : {children?: React.ReactNode, link?: string, newTab?: boolean}) => {
+const NavbarButton = ({ children, className = "", link = "", newTab = false } : {children?: ReactNode, className?: string, link?: string, newTab?: boolean}) => {
   const pathname = usePathname();
   const isCurrentPage = pathname === link;
 
   return (
-    <Link className={`link ${isCurrentPage ? "active" : ""}`}
-      href={link} target={newTab ? "_blank" : "_self"}
-    >
+    <Link className={`menu-link ${className} ${isCurrentPage ? "active" : ""}`}
+      href={link} target={newTab ? "_blank" : "_self"}>
       {children}
     </Link>
   );
@@ -38,15 +38,18 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="logo">
         <h1>{"silvia's"}</h1>
-        <button className="burger-menu" onClick={handleBurgerClick}>menu</button>
+        <button className={`burger-menu ${isBurgerOpened ? "opened" : ""}`} onClick={handleBurgerClick}>menu</button>
       </div>
-      <div className={`links ${isBurgerOpened ? "opened" : ""}`}>
-        <NavbarButton link="/">hello</NavbarButton>
-        <NavbarButton link="/projects">projects</NavbarButton>
-        <NavbarButton link="/contact">contact</NavbarButton>
-        <NavbarButton link="https://1drv.ms/b/s!AhwQNlQ3dXFki9I_beUieojh-1Tk6w?e=OQ50iI" newTab>resume</NavbarButton>
-        <DarkModeToggle />
-      </div>
+      <ul className={`menu-links ${isBurgerOpened ? "opened" : ""}`}>
+        <li><NavbarButton link="/">hello</NavbarButton></li>
+        <li><NavbarButton link="/projects">projects</NavbarButton></li>
+        <li><NavbarButton link="/contact">contact</NavbarButton></li>
+        <li><NavbarButton className="external-link" newTab
+          link="https://1drv.ms/b/s!AhwQNlQ3dXFki9I_beUieojh-1Tk6w?e=OQ50iI">
+            resume <IconExternalLink />
+        </NavbarButton></li>
+        {/*<li><DarkModeToggle /></li>*/}
+      </ul>
     </nav>
   );
 };

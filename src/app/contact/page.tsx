@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { ContactLinks } from "@/components/contact-links";
 
 const Contact = () => {
   return (
@@ -9,11 +10,14 @@ const Contact = () => {
       </header>
 
       <main>
-        <p>something on contacts...</p>
+        <section className="contact-links-section">
+          <h1>connect or message me!</h1>
+          <ContactLinks />
+        </section>
       </main>
 
       <footer>
-        <Footer />
+        <Footer hideContent/>
       </footer>
     </div>
   );

@@ -1,10 +1,14 @@
-const Footer = () => {
+import { ContactLinks } from "@/components/contact-links";
+
+const Footer = ({ hideContent = false, hideSignature = false } : {hideContent?: boolean, hideSignature?: boolean}) => {
   return (
     <>
-      <div className="footer-content">
-        <p>Finally started a portfolio website after procrastinating so long</p>
-      </div>
-      <p className="signature">made with 🦥 by silvia</p>
+      {!hideContent &&
+          <div className="footer-content">
+            <p>contact me</p>
+            <ContactLinks />
+          </div>}
+      {!hideSignature && <p className="signature">made with 🍜 by silvia</p>}
     </>
   );
 };
