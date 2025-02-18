@@ -1,17 +1,25 @@
 .home,
 .projects,
 .contact{
-  @apply flex flex-col items-center;
+  @apply flex flex-col items-center min-h-screen;
 
   header {
     @apply flex justify-center;
   }
 
   main {
-    @apply h-screen mt-36 w-10/12;
+    @apply mt-36 mb-auto w-10/12;
   }
 
   footer {
-    @apply py-4 px-8 bg-red-400;
+    @apply mb-9 w-10/12;
+
+    .footer-content {
+      @apply py-4 px-8 bg-red-400 rounded-2xl;
+    }
+
+    .signature {
+      @apply text-center text-xs mt-3;
+    }
   }
 }

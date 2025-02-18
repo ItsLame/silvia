@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const Home = () => {
   return (
@@ -9,10 +10,26 @@ const Home = () => {
 
       <main>
         <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
+        <p>something on hello...</p>
       </main>
 
       <footer>
-        <p>Finally made a portfolio website after procrastinating so long by Silvia</p>
+        <Footer />
       </footer>
     </div>
   );

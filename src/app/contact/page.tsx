@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const Contact = () => {
   return (
@@ -10,6 +11,10 @@ const Contact = () => {
       <main>
         <p>something on contacts...</p>
       </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };
