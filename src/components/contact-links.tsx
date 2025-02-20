@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from "@tabler/icons-react";
 
-export const ContactButton = ({ children, link = "" } : {children?: ReactNode, link?: string}) => {
+const ContactButton = ({ children, link = "" } : {children?: ReactNode, link?: string}) => {
   return (
     <Link className="contact-link" href={link} target="_blank">
       {children}
@@ -10,7 +10,7 @@ export const ContactButton = ({ children, link = "" } : {children?: ReactNode, l
   );
 };
 
-export const ContactLinks = () => {
+const ContactLinks = () => {
   return (
     <ul className="contact-links">
       <li><ContactButton link="mailto:ms.silviatan@gmail.com"><IconMail />ms.silviatan@gmail.com</ContactButton></li>
@@ -19,3 +19,5 @@ export const ContactLinks = () => {
     </ul>
   );
 };
+
+export default ContactLinks;

@@ -1,6 +1,6 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { ContactLinks } from "@/components/contact-links";
+import ContactLinks from "@/components/contact-links";
 
 const Contact = () => {
   return (
@@ -24,3 +24,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
