@@ -18,7 +18,7 @@
   @apply flex items-center justify-between min-h-[43px];
 
   h1 {
-    @apply text-2xl font-extrabold
+    @apply text-2xl font-extrabold m-0
     text-red-600
     dark:text-red-300;
   }
@@ -49,9 +49,18 @@
   transition-[max-height,margin-top]
   duration-300;
 
+  &:not(&.opened) {
+    @apply invisible max-h-0 md:visible md:max-h-full;
+  }
+
+  &:has(&.opened) {
+    /*@apply flex flex-col;*/
+  }
+
   &.opened {
     @apply
     max-h-60 mt-4
+    md:max-h-full md:mt-0
     transition-[max-height,margin-top]
     duration-300;
   }
