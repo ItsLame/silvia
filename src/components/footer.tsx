@@ -5,7 +5,7 @@ const Footer = ({ hideContent = false, hideSignature = false } : {hideContent?: 
     <>
       {!hideContent &&
           <div className="footer-content">
-            <p className="font-semibold text-red-800">contact me</p>
+            <p className="footer-content-header">contact me</p>
             <ContactLinks />
           </div>}
       {!hideSignature && <p className="signature">made with 🍜 by silvia</p>}
