@@ -27,6 +27,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment: production
+    permissions: write-all
     steps:
       - uses: actions/checkout@v4
       - name: Deploy to vercel (prod)
@@ -34,5 +35,6 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-args: '--prod'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
