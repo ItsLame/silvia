@@ -1,5 +1,5 @@
 import type { CollectionConfig } from "payload";
-import { Metadata } from "@/fields/Metadata";
+import { Metadata } from "@/contents/fields/Metadata";
 
 export const Blogs: CollectionConfig = {
   slug: "blogs",
