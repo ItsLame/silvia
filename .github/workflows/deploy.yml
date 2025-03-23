@@ -1,4 +1,4 @@
-name: Deployment
+name: Build & Deploy
 
 on:
   push:
@@ -32,9 +32,6 @@ jobs:
         uses: amondnet/vercel-action@v25.2.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod'
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
-          alias-domains: |
-            silvia-alpha.vercel.app
-            silvia-tan.vercel.app
-            silviatan.com

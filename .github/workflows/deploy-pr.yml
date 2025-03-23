@@ -1,4 +1,4 @@
-name: PR Deployment
+name: PR Build & Deploy
 
 on:
   pull_request:
@@ -34,7 +34,3 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
-          alias-domains: |
-            pr-{{PR_NUMBER}}.silvia-alpha.vercel.app
-            pr-{{PR_NUMBER}}.silvia-tan.vercel.app
-            pr-{{PR_NUMBER}}.silviatan.com
