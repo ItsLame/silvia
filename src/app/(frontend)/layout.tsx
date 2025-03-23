@@ -1,19 +1,26 @@
-import React from "react";
-import "./styles.css";
+import type { Metadata } from "next";
+import "@/styles/globals.css";
 
-export const metadata = {
-  description: "A blank template using Payload in a Next.js app.",
-  title: "Payload Blank Template",
+export const metadata: Metadata = {
+  title: "Silvia - Software Engineer",
+  description: "Silvia's Portfolio - Full Stack Software Engineer",
+  keywords: "Silvia, Silvia Silvia, Silvia Tan, Portfolio, Software Engineer, Full Stack, Startup, Web, Frontend",
 };
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props;
-
+const RootLayout = ({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) => {
   return (
     <html lang="en">
-      <body>
-        <main>{children}</main>
+      <body
+        className={"antialiased"}
+      >
+        {children}
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

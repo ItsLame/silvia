@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { Metadata } from "@/fields/Metadata";
 
 export const Blogs: CollectionConfig = {
   slug: "blogs",
@@ -11,7 +12,7 @@ export const Blogs: CollectionConfig = {
       type: "group",
       fields: [
         {
-          name: "blog title",
+          name: "title",
           type: "text",
           required: true,
         },
@@ -22,28 +23,6 @@ export const Blogs: CollectionConfig = {
         },
       ]
     },
-    {
-      name: "other info",
-      type: "group",
-      fields: [
-        {
-          name: "id",
-          type: "number"
-        },
-        {
-          name: "slug",
-          type: "text"
-        },
-        {
-          name: "publish date",
-          type: "date",
-        },
-        {
-          name: "update date",
-          type: "date",
-        }
-      ],
-    },
+    Metadata
   ],
-  upload: true,
 };
