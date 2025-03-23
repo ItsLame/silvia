@@ -34,6 +34,9 @@ jobs:
         uses: amondnet/vercel-action@v25.2.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: '--prod'
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
+          alias-domains: |
+            pr-{{PR_NUMBER}}.silvia-alpha.vercel.app
+            pr-{{PR_NUMBER}}.silvia-tan.vercel.app
+            pr-{{PR_NUMBER}}.silviatan.com
