@@ -1,7 +1,7 @@
-name: Deployment
+name: PR Deployment
 
 on:
-  push:
+  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -28,13 +28,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to vercel (prod)
+      - name: Deploy to vercel (preview)
         uses: amondnet/vercel-action@v25.2.0
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
           alias-domains: |
-            silvia-alpha.vercel.app
-            silvia-tan.vercel.app
-            silviatan.com
+            pr-{{PR_NUMBER}}.silvia-alpha.vercel.app
+            pr-{{PR_NUMBER}}.silvia-tan.vercel.app
+            pr-{{PR_NUMBER}}.silviatan.com
