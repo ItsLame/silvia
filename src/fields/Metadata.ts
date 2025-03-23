@@ -1,29 +1,24 @@
 import { Field } from "payload";
-import { useUseTitleField } from "@payloadcms/ui";
 
 export const Metadata: Field = {
   name: "metadata",
   type: "group",
   fields: [
     {
-      name: "id",
+      name: "order",
       type: "number",
-      index: true,
     },
     {
       name: "slug",
       type: "text",
-      defaultValue: useUseTitleField
     },
     {
-      name: "created date",
+      name: "customCreatedDate",
       type: "date",
-      defaultValue: Date.now(),
     },
     {
-      name: "updated date",
+      name: "customUpdatedDate",
       type: "date",
-      defaultValue: Date.now(),
     }
   ],
 };

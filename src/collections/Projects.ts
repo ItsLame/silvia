@@ -8,7 +8,7 @@ export const Projects: CollectionConfig = {
   },
   fields: [
     {
-      name: "content",
+      name: "data",
       type: "group",
       fields: [
         {
@@ -22,16 +22,19 @@ export const Projects: CollectionConfig = {
           required: true,
         },
         {
-          name: "body",
-          type: "richText",
-          required: true,
+          name: "description",
+          type: "text",
         },
         {
-          name: "repo link",
+          name: "body",
+          type: "richText",
+        },
+        {
+          name: "repoLink",
           type: "text"
         },
         {
-          name: "demo link",
+          name: "demoLink",
           type: "text"
         }
       ]

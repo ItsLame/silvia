@@ -8,7 +8,7 @@ export const Blogs: CollectionConfig = {
   },
   fields: [
     {
-      name: "content",
+      name: "data",
       type: "group",
       fields: [
         {
