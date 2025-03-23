@@ -29,7 +29,7 @@ const eslintConfig = [
       "quotes": ["error", "double"],
     },
     ignores: [
-      "**/(payload)/*"
+      "**/(payload)/**"
     ]
   },
 ];
