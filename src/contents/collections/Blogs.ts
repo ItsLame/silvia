@@ -1,5 +1,5 @@
 import type { CollectionConfig } from "payload";
-import { Metadata } from "@/contents/fields/Metadata";
+import { Metadata } from "@/contents/common/Metadata";
 
 export const Blogs: CollectionConfig = {
   slug: "blogs",
@@ -8,21 +8,25 @@ export const Blogs: CollectionConfig = {
   },
   fields: [
     {
-      name: "data",
-      type: "group",
-      fields: [
+      type: "tabs",
+      tabs: [
         {
-          name: "title",
-          type: "text",
-          required: true,
+          name: "content",
+          fields: [
+            {
+              name: "title",
+              type: "text",
+              required: true,
+            },
+            {
+              name: "body",
+              type: "richText",
+              required: true,
+            }
+          ]
         },
-        {
-          name: "body",
-          type: "richText",
-          required: true,
-        },
-      ]
+        Metadata
+      ],
     },
-    Metadata
   ],
 };

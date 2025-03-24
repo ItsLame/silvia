@@ -1,16 +1,15 @@
-import { Field } from "payload";
+import { Tab } from "payload";
 
-export const Metadata: Field = {
+export const Metadata: Tab = {
   name: "metadata",
-  type: "group",
   fields: [
-    {
-      name: "order",
-      type: "number",
-    },
     {
       name: "slug",
       type: "text",
+    },
+    {
+      name: "order",
+      type: "number",
     },
     {
       name: "customCreatedDate",
