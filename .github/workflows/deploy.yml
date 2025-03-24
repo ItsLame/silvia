@@ -35,6 +35,6 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-args: '--prod'
-          github-token: ${{ secrets.PATNAME }}
+          github-token: ${{ secrets.PAT }}
           vercel-org-id: ${{ secrets.ORG_ID }}
           vercel-project-id: ${{ secrets.PROJECT_ID }}
