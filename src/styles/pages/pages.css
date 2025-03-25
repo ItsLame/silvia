@@ -1,5 +1,8 @@
 .home,
 .projects,
+.project,
+.blogs,
+.blog,
 .contact {
   @apply flex flex-col items-center min-h-screen;
 
@@ -24,7 +27,9 @@
 }
 
 .projects,
-.blogs {
+.project,
+.blogs,
+.blog {
   main {
     @apply w-10/12;
   }

@@ -159,18 +159,36 @@ export interface Media {
  */
 export interface Project {
   id: string;
-  alt: string;
+  content: {
+    thumbnail?: (string | null) | Media;
+    title: string;
+    description?: string | null;
+    body?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    repoLink?: string | null;
+    demoLink?: string | null;
+  };
+  metadata: {
+    slug: string;
+    order?: number | null;
+    customCreatedDate?: string | null;
+    customUpdatedDate?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -179,7 +197,7 @@ export interface Project {
 export interface Blog {
   id: string;
   content: {
-    'blog title': string;
+    title: string;
     body: {
       root: {
         type: string;
@@ -196,23 +214,14 @@ export interface Blog {
       [k: string]: unknown;
     };
   };
-  'other info'?: {
-    id?: number | null;
-    slug?: string | null;
-    'publish date'?: string | null;
-    'update date'?: string | null;
+  metadata: {
+    slug: string;
+    order?: number | null;
+    customCreatedDate?: string | null;
+    customUpdatedDate?: string | null;
   };
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -317,18 +326,26 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
-  alt?: T;
+  content?:
+    | T
+    | {
+        thumbnail?: T;
+        title?: T;
+        description?: T;
+        body?: T;
+        repoLink?: T;
+        demoLink?: T;
+      };
+  metadata?:
+    | T
+    | {
+        slug?: T;
+        order?: T;
+        customCreatedDate?: T;
+        customUpdatedDate?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -338,28 +355,19 @@ export interface BlogsSelect<T extends boolean = true> {
   content?:
     | T
     | {
-        'blog title'?: T;
+        title?: T;
         body?: T;
       };
-  'other info'?:
+  metadata?:
     | T
     | {
-        id?: T;
         slug?: T;
-        'publish date'?: T;
-        'update date'?: T;
+        order?: T;
+        customCreatedDate?: T;
+        customUpdatedDate?: T;
       };
   updatedAt?: T;
   createdAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -6,6 +6,7 @@ export const Metadata: Tab = {
     {
       name: "slug",
       type: "text",
+      required: true,
     },
     {
       name: "order",
