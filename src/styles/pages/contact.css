@@ -4,10 +4,10 @@
   }
 
   .contact-links-section {
-    @apply mx-4 sm:mx-10;
+    @apply sm:mx-36;
 
     h1 {
-      @apply text-4xl;
+      @apply text-5xl;
     }
   }
 

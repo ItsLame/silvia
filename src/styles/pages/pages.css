@@ -1,0 +1,31 @@
+.home,
+.projects,
+.contact {
+  @apply flex flex-col items-center min-h-screen;
+
+  header {
+    @apply flex justify-center;
+  }
+
+  main {
+    @apply flex flex-col flex-1 mt-36 mb-9;
+  }
+
+  footer {
+    @apply mb-9 w-10/12;
+  }
+}
+
+.home,
+.contact {
+  main {
+    @apply w-10/12 sm:w-11/12;
+  }
+}
+
+.projects,
+.blogs {
+  main {
+    @apply w-10/12;
+  }
+}
