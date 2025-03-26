@@ -22,6 +22,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install vercel CLI
         run: npm install --global vercel@latest
+      - name: Setup env values
+        run: |
+          vercel link
+          vercel env pull
       - name: Build artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy to vercel (prod)
