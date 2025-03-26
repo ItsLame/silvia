@@ -1,7 +1,7 @@
 // storage-adapter-import-placeholder
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
-import { defaultEditorFeatures, FixedToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
+import { BlocksFeature, defaultEditorFeatures, FixedToolbarFeature, lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload";
 import { fileURLToPath } from "url";
@@ -11,6 +11,8 @@ import { Users } from "@/contents/collections/Users";
 import { Media } from "@/contents/collections/Media";
 import { Projects } from "@/contents/collections/Projects";
 import { Blogs } from "@/contents/collections/Blogs";
+import { Disclaimer } from "@/contents/blocks/Disclaimer";
+import { CodeBlock } from "@/contents/blocks/CodeBlock";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -24,7 +26,13 @@ export default buildConfig({
   },
   collections: [Users, Media, Projects, Blogs],
   editor: lexicalEditor({
-    features: [...defaultEditorFeatures, FixedToolbarFeature()]
+    features: [
+      ...defaultEditorFeatures,
+      FixedToolbarFeature(),
+      BlocksFeature({
+        blocks: [Disclaimer, CodeBlock]
+      }),
+    ]
   }),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
