@@ -7,6 +7,7 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    environment: preview
     outputs:
       preview-link: "${{ steps.vercel-deploy.outputs.preview-link }}"
       inspect-link: "${{ steps.vercel-deploy.outputs.inspect-link }}"
@@ -25,8 +26,8 @@ jobs:
         id: vercel-deploy
         run: |
           deploy_output=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
-          inspect_link=$(echo "$deploy_output" | grep 'Inspect:' | awk '{print $2}')
-          preview_link=$(echo "$deploy_output" | grep 'Preview:' | awk '{print $2}')
+          inspect_link=$(echo "$deploy_output" | grep -o 'Inspect: https://[^ ]*' | cut -d' ' -f2)
+          preview_link=$(echo "$deploy_output" | grep -o 'Preview: https://[^ ]*' | cut -d' ' -f2)
           echo "inspect-link=$inspect_link" >> "$GITHUB_OUTPUT"
           echo "preview-link=$preview_link" >> "$GITHUB_OUTPUT"
 
