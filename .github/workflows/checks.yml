@@ -3,18 +3,10 @@ name: Initial checks
 on:
   workflow_call:
 
-env:
-  TEST_VAR: some random value
-  DATABASE_URI: ${{ github.event_name == 'pull_request' && secrets.DATABASE_URI || secrets.DATABASE_URI }}
-  PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-  ORG_ID: ${{ secrets.ORG_ID }}
-  PROJECT_ID: ${{ secrets.PROJECT_ID }}
-
 jobs:
   check-pr:
     runs-on: ubuntu-latest
-    name: Check PR
+    name: Check pr
     steps:
       - if: github.event_name == 'pull_request'
         run: |
@@ -25,6 +17,13 @@ jobs:
   check-secrets:
     runs-on: ubuntu-latest
     name: Check secrets
+    env:
+      TEST_VAR: some random value
+      DATABASE_URI: ${{ github.event_name == 'pull_request' && secrets.DATABASE_URI_PR || secrets.DATABASE_URI }}
+      PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      ORG_ID: ${{ secrets.ORG_ID }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
     steps:
       - run: |
           if [ -z "$TEST_VAR" ]; then
