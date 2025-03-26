@@ -8,16 +8,18 @@ env:
   PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
 
 jobs:
-  test-secrets:
+  check-secrets:
     uses: ./.github/workflows/secrets.yml
+    secrets: inherit
 
   build:
-    needs: test-secrets
+    needs: check-secrets
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 22.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
