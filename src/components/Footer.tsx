@@ -1,4 +1,4 @@
-import ContactLinks from "@/components/contact-links";
+import ContactLinks from "@/components/ContactLinks";
 
 const Footer = ({ hideContent = false, hideSignature = false } : {hideContent?: boolean, hideSignature?: boolean}) => {
   return (
