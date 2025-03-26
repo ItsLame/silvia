@@ -4,10 +4,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  DATABASE_URI: ${{ secrets.DATABASE_URI }}
-  PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
-
 jobs:
   build:
     uses: ./.github/workflows/build-npm.yml

@@ -8,6 +8,9 @@ env:
   PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
 
 jobs:
+  test-secrets:
+    uses: ./.github/workflows/secrets.yml
+
   build:
     runs-on: ubuntu-latest
     strategy:
