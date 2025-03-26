@@ -13,7 +13,8 @@ jobs:
     outputs:
       preview-link: "${{ steps.vercel-deploy.outputs.preview-link }}"
       inspect-link: "${{ steps.vercel-deploy.outputs.inspect-link }}"
-      test-value: "test some random value"
+      test-value: "${{ steps.vercel-deploy.outputs.test-value }}"
+      test-value-two: ${{ steps.vercel-deploy.outputs.test-value-two }}
     steps:
       - uses: actions/checkout@v4
       - name: Install vercel CLI
@@ -33,6 +34,8 @@ jobs:
           preview_link=$(echo "$deploy_output" | grep -i -o 'preview: https://[^ ]*' | cut -d' ' -f2)
           echo "inspect-link=$inspect_link" >> "$GITHUB_OUTPUT"
           echo "preview-link=$preview_link" >> "$GITHUB_OUTPUT"
+          echo "test-value='test some random value'" >> "$GITHUB_OUTPUT"
+          echo "test-value-two=test" >> "$GITHUB_OUTPUT"
 
   pr-comment:
     needs: build-deploy
@@ -52,5 +55,10 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: 'Successfully deployed to preview!\n\n👀 Preview: ${{ needs.build-deploy.outputs.preview-link }}\n🔍 Inspect: ${{ needs.build-deploy.outputs.inspect-link }}\n💩 Test: ${{ needs.build-deploy.outputs.test-value }}'
+            body: 'Successfully deployed to preview!\n
+              👀 Preview: ${{ needs.build-deploy.outputs.preview-link }}
+              🔍 Inspect: ${{ needs.build-deploy.outputs.inspect-link }}
+              💩 Test 1: ${{ needs.build-deploy.outputs.test-value }}
+              💩 Test 2: ${{ needs.build-deploy.outputs.test-value-two }}
+            '
           })
