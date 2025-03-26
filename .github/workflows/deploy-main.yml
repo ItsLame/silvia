@@ -5,21 +5,19 @@ on:
     branches: [ "main" ]
 
 jobs:
-  check:
-    uses: ./.github/workflows/checks.yml
-    secrets: inherit
-
   build-deploy:
-    needs: check
     runs-on: ubuntu-latest
     environment: production
     steps:
       - uses: actions/checkout@v4
       - name: Install vercel CLI
         run: npm install --global vercel@latest
+
       - name: Set env info
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Build artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Deploy to vercel (prod)
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

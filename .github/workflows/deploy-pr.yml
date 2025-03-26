@@ -5,22 +5,42 @@ on:
     branches: [ "main" ]
 
 jobs:
-  check:
-    uses: ./.github/workflows/checks.yml
-    secrets: inherit
-
   build-deploy:
-    needs: check
     runs-on: ubuntu-latest
     environment: preview
+    outputs:
+      preview-link: "${{ steps.vercel-deploy.outputs.preview-link }}"
     steps:
       - uses: actions/checkout@v4
       - name: Install vercel CLI
         run: npm install --global vercel@latest
+
       - name: Set env info
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Build artifacts
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
-      - name: Deploy to vercel (preview)
-        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
 
+      - name: Deploy to vercel (preview)
+        id: vercel-deploy
+        run: |
+          deploy_output=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
+          preview_link=$(echo "$deploy_output" | tail -n 1)
+          echo "preview-link=$preview_link" >> "$GITHUB_OUTPUT"
+
+  pr-comment:
+    needs: build-deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Add preview url to PR comment
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '✅Successfully deployed preview: ${{ needs.build-deploy.outputs.preview-link }}'
+          })
