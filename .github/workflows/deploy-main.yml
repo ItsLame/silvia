@@ -7,7 +7,9 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment:
+      name: production
+      url: https://silviatan.com
     steps:
       - uses: actions/checkout@v4
       - name: Install vercel CLI

@@ -11,6 +11,7 @@ jobs:
       name: preview
       url: ${{ steps.vercel-deploy.outputs.preview-link }}
     outputs:
+      deploy-output: ${{ steps.vercel-deploy.outputs.deploy-output }}
       preview-link: "${{ steps.vercel-deploy.outputs.preview-link }}"
       inspect-link: "${{ steps.vercel-deploy.outputs.inspect-link }}"
       test-value: "${{ steps.vercel-deploy.outputs.test-value }}"
@@ -32,9 +33,10 @@ jobs:
           deploy_output=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
           inspect_link=$(echo "$deploy_output" | grep -i -o 'inspect: https://[^ ]*' | cut -d' ' -f2)
           preview_link=$(echo "$deploy_output" | grep -i -o 'preview: https://[^ ]*' | cut -d' ' -f2)
+          echo "deploy-output=$deploy_output" >> "$GITHUB_OUTPUT"
           echo "inspect-link=$inspect_link" >> "$GITHUB_OUTPUT"
           echo "preview-link=$preview_link" >> "$GITHUB_OUTPUT"
-          echo "test-value='test some random value'" >> "$GITHUB_OUTPUT"
+          echo "test-value=test some random value" >> "$GITHUB_OUTPUT"
           echo "test-value-two=test" >> "$GITHUB_OUTPUT"
 
   pr-comment:
