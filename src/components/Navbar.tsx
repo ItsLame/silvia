@@ -48,7 +48,7 @@ const Navbar = () => {
       </div>
       <ul className={`menu-links ${isBurgerOpened ? "opened" : ""}`}>
         <li><NavbarButton link="/">hello</NavbarButton></li>
-        // <li><NavbarButton link="/projects">projects</NavbarButton></li>
+        {/*<li><NavbarButton link="/projects">projects</NavbarButton></li>*/}
         <li><NavbarButton link="/blogs">blogs</NavbarButton></li>
         <li><NavbarButton link="/contact">contact</NavbarButton></li>
         <li><NavbarButton className="external-link" newTab
