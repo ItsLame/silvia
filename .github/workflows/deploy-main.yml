@@ -12,6 +12,7 @@ jobs:
   build:
     needs: check
     uses: ./.github/workflows/build-npm.yml
+    secrets: inherit
 
   deploy:
     needs: build
