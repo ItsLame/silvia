@@ -51,7 +51,7 @@ const Navbar = () => {
         <li><NavbarButton link="/projects">projects</NavbarButton></li>
         <li><NavbarButton link="/contact">contact</NavbarButton></li>
         <li><NavbarButton className="external-link" newTab
-          link="https://1drv.ms/b/s!AhwQNlQ3dXFki9I_beUieojh-1Tk6w?e=OQ50iI">
+          link="https://1drv.ms/b/s!AhwQNlQ3dXFki9Mb_6-DoKFMd1LEvA?e=qyMNkN">
             resume <IconExternalLink />
         </NavbarButton></li>
         {/*<li><DarkModeToggle /></li>*/}
