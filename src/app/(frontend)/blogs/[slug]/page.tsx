@@ -26,7 +26,7 @@ const Blog = async ({ params } : {params: Promise<{slug: string}>}) => {
       <main>
         <section className="blog-section">
           <h1>{content?.title}</h1>
-          {content?.body && <RichText data={content.body} />}
+          {content.body && <RichText data={content.body} />}
         </section>
       </main>
 
