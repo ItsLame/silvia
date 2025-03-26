@@ -9,21 +9,17 @@ jobs:
     uses: ./.github/workflows/checks.yml
     secrets: inherit
 
-  build:
+  build-deploy:
     needs: check
-    uses: ./.github/workflows/build-npm.yml
-    secrets: inherit
-
-  deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment: production
+    env:
+      VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID }}
     steps:
       - uses: actions/checkout@v4
+      - uses: ./.github/workflows/build-npm.yml
+      - name: Install vercel CLI
+        run: npm install --global vercel@latest
       - name: Deploy to vercel (prod)
-        uses: amondnet/vercel-action@v25.2.0
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: '--prod'
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.PROJECT_ID }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
