@@ -12,6 +12,7 @@ jobs:
     uses: ./.github/workflows/secrets.yml
 
   build:
+    needs: test-secrets
     runs-on: ubuntu-latest
     strategy:
       matrix:
