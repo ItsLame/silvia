@@ -13,7 +13,7 @@ const ContactButton = ({ children, link = "" } : {children?: ReactNode, link?: s
 const ContactLinks = () => {
   return (
     <ul className="contact-links">
-      <li><ContactButton link="mailto:ms.silviatan@gmail.com"><IconMail />ms.silviatan@gmail.com</ContactButton></li>
+      <li><ContactButton link="mailto:ms.silviatan@outlook.com"><IconMail />ms.silviatan@outlook.com</ContactButton></li>
       <li><ContactButton link="https://www.linkedin.com/in/just-silvia/"><IconBrandLinkedin />just-silvia</ContactButton></li>
       <li><ContactButton link="https://github.com/ItsLame"><IconBrandGithub />itslame</ContactButton></li>
     </ul>
