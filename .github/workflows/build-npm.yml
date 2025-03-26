@@ -4,12 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  check-secrets:
-    uses: ./.github/workflows/secrets.yml
-    secrets: inherit
-
   build:
-    needs: check-secrets
     runs-on: ubuntu-latest
     strategy:
       matrix:

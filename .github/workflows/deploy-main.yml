@@ -5,7 +5,12 @@ on:
     branches: [ "main" ]
 
 jobs:
+  check:
+    uses: ./.github/workflows/checks.yml
+    secrets: inherit
+
   build:
+    needs: check
     uses: ./.github/workflows/build-npm.yml
     secrets: inherit
 

@@ -1,4 +1,4 @@
-name: Check for secrets
+name: Initial checks
 
 on:
   workflow_call:
@@ -14,7 +14,7 @@ env:
 jobs:
   check-pr:
     runs-on: ubuntu-latest
-    name: Check if we're currently in PR
+    name: Check PR
     steps:
       - if: github.event_name == 'pull_request'
         run: |
@@ -24,7 +24,7 @@ jobs:
 
   check-secrets:
     runs-on: ubuntu-latest
-    name: Check if any env variables are empty
+    name: Check secrets
     steps:
       - run: |
           if [ -z "$TEST_VAR" ]; then
