@@ -1,5 +1,5 @@
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { apiClient } from "@/services/api-client";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 
