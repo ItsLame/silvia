@@ -7,10 +7,7 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: write
+    permissions: write-all
     outputs:
       preview-link: "${{ steps.vercel-deploy.outputs.preview-link }}"
       inspect-link: "${{ steps.vercel-deploy.outputs.inspect-link }}"
