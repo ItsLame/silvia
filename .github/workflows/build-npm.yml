@@ -3,13 +3,13 @@ name: Clean install and build
 on:
   workflow_call:
 
+env:
+  DATABASE_URI: ${{ secrets.DATABASE_URI }}
+  PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: pre-deploy
-    env:
-      DATABASE_URI: ${{ secrets.DATABASE_URI }}
-      PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
     strategy:
       matrix:
         node-version: [ 22.x ]
@@ -22,5 +22,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: |
+          echo "This is the $DATABASE_URI environment variable"
+          echo "This is the $PAYLOAD_SECRET environment variable"
           npm ci
           npm run build --if-present
