@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check pr
     steps:
+      - uses: actions/checkout@v4
       - if: github.event_name == 'pull_request'
         run: |
           echo "Pull Request Detected!"
@@ -25,6 +26,7 @@ jobs:
       ORG_ID: ${{ secrets.ORG_ID }}
       PROJECT_ID: ${{ secrets.PROJECT_ID }}
     steps:
+      - uses: actions/checkout@v4
       - run: |
           if [ -z "$TEST_VAR" ]; then
             echo "Failed to retrieve test env variable"
