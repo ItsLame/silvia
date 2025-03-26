@@ -31,6 +31,10 @@ jobs:
   pr-comment:
     needs: build-deploy
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     steps:
     - uses: actions/checkout@v4
     - name: Add preview url to PR comment
