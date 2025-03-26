@@ -7,7 +7,9 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    environment: preview
+    environment:
+      name: preview
+      url: ${{ steps.vercel-deploy.outputs.preview-link }}
     outputs:
       preview-link: "${{ steps.vercel-deploy.outputs.preview-link }}"
       inspect-link: "${{ steps.vercel-deploy.outputs.inspect-link }}"
@@ -49,5 +51,5 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: '✅ Successfully deployed to preview! 👀 Preview: ${{ needs.build-deploy.outputs.preview-link }}''
+            body: '✅ Successfully deployed to preview! 👀 Preview: ${{ needs.build-deploy.outputs.preview-link }}'
           })
