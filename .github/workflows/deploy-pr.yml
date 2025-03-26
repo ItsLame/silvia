@@ -49,8 +49,5 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: `✅ Successfully deployed to preview!
-              🔍 Inspect: ${{ needs.build-deploy.outputs.inspect-link }}
-              👀 Preview: ${{ needs.build-deploy.outputs.preview-link }}
-            `
+            body: '✅ Successfully deployed to preview! 👀 Preview: ${{ needs.build-deploy.outputs.preview-link }}''
           })
