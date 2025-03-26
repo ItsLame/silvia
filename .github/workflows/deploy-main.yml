@@ -14,11 +14,21 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     env:
+      DATABASE_URI: ${{ secrets.DATABASE_URI }}
+      PAYLOAD_SECRET: ${{ secrets.PAYLOAD_SECRET }}
       VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
       VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/workflows/build-npm.yml
+      - name: Use node ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: Clean install and build project
+        run: |
+          npm ci
+          npm run build --if-present
       - name: Install vercel CLI
         run: npm install --global vercel@latest
       - name: Deploy to vercel (prod)
