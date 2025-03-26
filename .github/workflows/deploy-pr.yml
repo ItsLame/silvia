@@ -10,6 +10,7 @@ jobs:
     environment: preview
     outputs:
       preview-link: "${{ steps.vercel-deploy.outputs.preview-link }}"
+      inspect-link: "${{ steps.vercel-deploy.outputs.inspect-link }}"
     steps:
       - uses: actions/checkout@v4
       - name: Install vercel CLI
@@ -25,7 +26,9 @@ jobs:
         id: vercel-deploy
         run: |
           deploy_output=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
-          preview_link=$(echo "$deploy_output" | tail -n 1)
+          inspect_link=$(echo "$deploy_output" | grep "Inspect:" | cut -d' ' -f2)
+          preview_link=$(echo "$deploy_output" | grep "Preview:" | cut -d' ' -f2)
+          echo "inspect-link=$inspect_link" >> "$GITHUB_OUTPUT"
           echo "preview-link=$preview_link" >> "$GITHUB_OUTPUT"
 
   pr-comment:
@@ -46,5 +49,8 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: '✅Successfully deployed preview: ${{ needs.build-deploy.outputs.preview-link }}'
+            body: `✅ Successfully deployed to preview
+              Inspect: ${{ needs.build-deploy.outputs.inspect-link }}
+              Preview: ${{ needs.build-deploy.outputs.preview-link }}`
+            `
           })
