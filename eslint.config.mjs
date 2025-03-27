@@ -27,8 +27,11 @@ const eslintConfig = [
       "object-curly-spacing": ["error", "always"],
       "array-bracket-spacing": ["error", "never"],
       "quotes": ["error", "double"],
-    }
-  }
+    },
+    ignores: [
+      "**/(payload)/**"
+    ]
+  },
 ];
 
 export default eslintConfig;

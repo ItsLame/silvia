@@ -10,8 +10,8 @@ const Home = () => {
 
       <main>
         <div className="intro">
-          <h1>hello i&apos;m <span className="name block">silvia</span></h1>
-          <p className="text-xl">a full stack software engineer who loves to build accessible and nice looking stuff.</p>
+          <h1>hello i&apos;m <span className="name">silvia</span></h1>
+          <p>a full stack software engineer who loves to build accessible and nice looking stuff.</p>
         </div>
       </main>
 

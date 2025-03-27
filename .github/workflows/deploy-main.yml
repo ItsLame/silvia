@@ -5,19 +5,21 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-    uses: ./.github/workflows/build-npm.yml
-
-  deploy:
-    needs: build
+  build-deploy:
     runs-on: ubuntu-latest
-    environment: production
+    environment:
+      name: production
+      url: https://silviatan.com
     steps:
       - uses: actions/checkout@v4
+      - name: Install vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Set env info
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Deploy to vercel (prod)
-        uses: amondnet/vercel-action@v25.2.0
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: '--prod'
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.PROJECT_ID }}
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

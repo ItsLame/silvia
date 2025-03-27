@@ -1,24 +1,51 @@
-name: Deploy PR to preview
+name: Deploy to preview
 
 on:
   pull_request:
     branches: [ "main" ]
 
 jobs:
-  build:
-    uses: ./.github/workflows/build-npm.yml
-
-  deploy:
-    needs: build
+  build-deploy:
     runs-on: ubuntu-latest
-    environment: preview
-    permissions: write-all
+    environment:
+      name: preview
+      url: ${{ steps.vercel-deploy.outputs.preview-link }}
+    outputs:
+      preview-link: ${{ steps.vercel-deploy.outputs.preview-link }}
     steps:
       - uses: actions/checkout@v4
+      - name: Install vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Set env info
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Deploy to vercel (preview)
-        uses: amondnet/vercel-action@v25.2.0
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-org-id: ${{ secrets.ORG_ID }}
-          vercel-project-id: ${{ secrets.PROJECT_ID }}
+        id: vercel-deploy
+        run: |
+          deploy_output=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})
+          echo "preview-link=$deploy_output" >> "$GITHUB_OUTPUT"
+
+  pr-comment:
+    needs: build-deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+    - uses: actions/checkout@v4
+    - name: Add preview url to PR comment
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '🤘 preview!\n\n🤡 ${{ needs.build-deploy.outputs.preview-link }}'
+          })
