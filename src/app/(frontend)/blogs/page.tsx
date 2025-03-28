@@ -24,7 +24,7 @@ const Blogs = async () => {
         <section className="blogs-section">
           <h1>blogs</h1>
           {posts.docs.map((post, index) => (
-            <p key={post.metadata?.slug}>
+            <p key={post.id}>
               <a href={`/blogs/${post.metadata?.slug}`}>
                 {index + 1}. {post.content.title}
               </a>

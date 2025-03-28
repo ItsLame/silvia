@@ -7,7 +7,9 @@
 :root {
   /*--background: #ffffff;*/
   /*--foreground: #171717;*/
-  --background: #f6fff4;
+  /*--background: #f6fff4;*/
+  /*--background: #fffcec;*/
+  --background: #fdfae5;
   --foreground: #171717;
 }
 
@@ -33,6 +35,8 @@
     /*--background: #0a0a0a;*/
     /*--foreground: #ededed;*/
     --background: #291000;
+    /*--background: #301100;*/
+    /*--background: #120000;*/
     --foreground: #ffe4d9;
   }
 
