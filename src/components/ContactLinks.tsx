@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { IconBrandGithub, IconBrandLinkedin, IconMail } from "@tabler/icons-react";
 
-const ContactButton = ({ children, link = "" } : {children?: ReactNode, link?: string}) => {
+const ContactLink = ({ children, link = "" } : {children?: ReactNode, link?: string}) => {
   return (
     <Link className="contact-link" href={link} target="_blank">
       {children}
@@ -13,9 +13,9 @@ const ContactButton = ({ children, link = "" } : {children?: ReactNode, link?: s
 const ContactLinks = () => {
   return (
     <ul className="contact-links">
-      <li><ContactButton link="mailto:ms.silviatan@outlook.com"><IconMail />ms.silviatan@outlook.com</ContactButton></li>
-      <li><ContactButton link="https://www.linkedin.com/in/just-silvia/"><IconBrandLinkedin />just-silvia</ContactButton></li>
-      <li><ContactButton link="https://github.com/ItsLame"><IconBrandGithub />itslame</ContactButton></li>
+      <li><ContactLink link="mailto:ms.silviatan@outlook.com"><IconMail />ms.silviatan@outlook.com</ContactLink></li>
+      <li><ContactLink link="https://www.linkedin.com/in/just-silvia/"><IconBrandLinkedin />just-silvia</ContactLink></li>
+      <li><ContactLink link="https://github.com/ItsLame"><IconBrandGithub />itslame</ContactLink></li>
     </ul>
   );
 };

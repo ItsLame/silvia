@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
 import { IconExternalLink } from "@tabler/icons-react";
 
-const NavbarButton = ({ children, className = "", link = "", newTab = false } : {children?: ReactNode, className?: string, link?: string, newTab?: boolean}) => {
+const NavbarLink = ({ children, className = "", link = "", newTab } : {children?: ReactNode, className?: string, link?: string, newTab?: true}) => {
   const pathname = usePathname();
   const isCurrentPage = pathname === link;
 
@@ -14,22 +14,6 @@ const NavbarButton = ({ children, className = "", link = "", newTab = false } : 
       href={link} target={newTab ? "_blank" : "_self"}>
       {children} {newTab && <IconExternalLink className="w-4 h-4" />}
     </Link>
-  );
-};
-
-export const DarkModeToggle = () => {
-  const toggleTheme = () => {
-    document.documentElement.classList.toggle("dark",);
-  };
-
-  return (
-    <button className="rounded-full bg-red-800" onClick={toggleTheme}>
-      <div className="px-4 py-2 rounded-full -translate-y-1 bg-red-200 text-red-600 font-semibold active:translate-y-0 transition-all active:shadow-inner active:shadow-red-800">
-        {/*<IconDeviceDesktop />*/}
-        {/*<IconSun />*/}
-        {/*<IconMoon />*/}
-      </div>
-    </button>
   );
 };
 
@@ -47,16 +31,15 @@ const Navbar = () => {
         <button className={`burger-menu ${isBurgerOpened ? "opened" : ""}`} onClick={handleBurgerClick}>menu</button>
       </div>
       <ul className={`menu-links ${isBurgerOpened ? "opened" : ""}`}>
-        <li><NavbarButton link="/">hello</NavbarButton></li>
-        <li><NavbarButton className="projects-nav-link" link="/projects">projects</NavbarButton></li>
+        <li><NavbarLink link="/">hello</NavbarLink></li>
+        <li><NavbarLink className="projects-nav-link" link="/projects">projects</NavbarLink></li>
         {/*<li><NavbarButton link="/blogs">blogs</NavbarButton></li>*/}
-        <li><NavbarButton link="/contact">contact</NavbarButton></li>
+        <li><NavbarLink link="/contact">contact</NavbarLink></li>
         <li>
-          <NavbarButton newTab link="https://1drv.ms/b/s!AhwQNlQ3dXFki9Mb_6-DoKFMd1LEvA?e=qyMNkN">
+          <NavbarLink newTab link="https://1drv.ms/b/s!AhwQNlQ3dXFki9Mb_6-DoKFMd1LEvA?e=qyMNkN">
             resume
-          </NavbarButton>
+          </NavbarLink>
         </li>
-        {/*<li><DarkModeToggle /></li>*/}
       </ul>
     </nav>
   );
