@@ -11,7 +11,7 @@ const Home = () => {
       <main>
         <div className="intro">
           <h1>hello i&apos;m <span className="name">silvia</span></h1>
-          <p>a full stack software engineer who loves to build user-friendly applications that are both functional and visually appealing.</p>
+          <p>a full stack software engineer who loves to build user-friendly web applications that are both functional and visually appealing.</p>
         </div>
       </main>
 

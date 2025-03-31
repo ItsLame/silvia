@@ -13,7 +13,7 @@ const Projects = async () => {
     page: 1,
     limit: 5,
     pagination: true,
-    sort: "metadata.order"
+    sort: "-metadata.order"
   });
 
   return (
