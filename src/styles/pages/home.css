@@ -1,17 +1,17 @@
 .home main {
   .intro {
-    @apply flex flex-col flex-1 min-h-[calc(100vh-11.25rem)] justify-center sm:mx-32;
+    @apply flex flex-col flex-1 min-h-[calc(100vh-11.25rem)] justify-center md:mx-32;
 
     .name {
       @apply block;
     }
 
     h1 {
-      @apply text-7xl sm:text-8xl;
+      @apply text-7xl md:text-8xl;
     }
 
     p {
-      @apply text-xl;
+      @apply text-lg sm:text-xl;
     }
   }
 

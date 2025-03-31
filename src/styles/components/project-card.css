@@ -3,11 +3,10 @@
 }
 
 .project-card .project-card-content {
-  @apply py-6 px-8 rounded-2xl mb-4 bg-orange-300 bg-opacity-30
-  transition-shadow
-  hover:transition-shadow
-  shadow-[inset_0_0_0_0_#9a3412,0_2px_4px_0px_#9a3412]
-  hover:shadow-[inset_0_2px_4px_1px_#9a3412,0_0_0_0_#9a3412];
+  @apply py-6 px-8 rounded-2xl mb-4 bg-orange-300 bg-opacity-30 transition-all
+  shadow-[inset_0_0_0_0_#9a3412,0_2px_4px_0_#9a3412]
+  hover:shadow-[inset_0_2px_4px_1px_#9a3412,0_0_0_0_#9a3412]
+  hover:bg-opacity-45;
 
   .project-card-title {
     @apply text-orange-700 dark:text-orange-300;
@@ -20,9 +19,9 @@
 
 @media(prefers-color-scheme: dark) {
   .project-card .project-card-content {
-    @apply
-    transition-all
+    @apply transition-shadow
     shadow-[inset_0_0_0_0_black,0_2px_4px_1px_black]
-    hover:shadow-[inset_0_2px_4px_2px_black,0_0_0_0_black]
+    hover:shadow-[inset_0_2px_4px_1px_black,0_0_0_0_black]
+    hover:bg-opacity-15;
   }
 }
