@@ -180,6 +180,7 @@ export interface Project {
     } | null;
     repoLink?: string | null;
     demoLink?: string | null;
+    videoLink?: string | null;
   };
   metadata: {
     slug: string;
