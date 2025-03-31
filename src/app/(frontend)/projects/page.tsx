@@ -13,6 +13,7 @@ const Projects = async () => {
     page: 1,
     limit: 5,
     pagination: true,
+    sort: "metadata.order"
   });
 
   return (
@@ -24,18 +25,23 @@ const Projects = async () => {
       <main>
         <section className="projects-section">
           <h1>projects</h1>
-          <p>some description</p>
-          <div className="projects-container mt-8 flex gap-4 flex-wrap flex-col md:flex-row">
-            {posts.docs.map((post) => (
-              <ProjectCard
-                key={post.id}
-                title={post.content.title}
-                description={post.content.description}
-                repoLink={post.content.repoLink}
-                demoLink={post.content.demoLink}
-                videoLink={post.content.videoLink}
-              />
-            ))}
+          <p>
+            Stuff I&apos;ve built, including this website!
+          </p>
+          <div className="projects-container">
+            {posts.docs.length > 0
+              ? posts.docs.map((post) => (
+                <ProjectCard
+                  key={post.id}
+                  title={post.content.title}
+                  description={post.content.description}
+                  repoLink={post.content.repoLink}
+                  demoLink={post.content.demoLink}
+                  videoLink={post.content.videoLink}
+                />
+              ))
+              : "no projects found..."
+            }
           </div>
         </section>
       </main>
