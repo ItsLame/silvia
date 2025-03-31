@@ -7,8 +7,8 @@ const Projects = async () => {
   const posts = await apiClient.find({
     collection: "projects",
     select:  {
-      metadata: { slug: true },
-      content: { title: true, description: true, repoLink: true, demoLink: true, videoLink: true  }
+      metadata: { slug: true, tags: true },
+      content: { title: true, description: true, repoLink: true, demoLink: true, videoLink: true }
     },
     page: 1,
     limit: 5,
@@ -38,6 +38,7 @@ const Projects = async () => {
                   repoLink={post.content.repoLink}
                   demoLink={post.content.demoLink}
                   videoLink={post.content.videoLink}
+                  techStack={post.metadata.tags}
                 />
               ))
               : "no projects found..."

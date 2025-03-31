@@ -20,6 +20,16 @@ export const Metadata: Tab = {
     {
       name: "customUpdatedDate",
       type: "date",
+    },
+    {
+      name: "tags",
+      type: "array",
+      fields: [
+        {
+          name: "tag",
+          type: "text"
+        }
+      ]
     }
   ],
 };
