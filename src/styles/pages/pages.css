@@ -22,7 +22,7 @@
 .home,
 .contact {
   main {
-    @apply w-10/12 sm:w-11/12;
+    @apply w-10/12 md:w-11/12;
   }
 }
 

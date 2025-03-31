@@ -2,8 +2,11 @@
 
 @import "pages/pages.css";
 @import "pages/home.css";
+@import "pages/projects.css";
+@import "pages/blogs.css";
 @import "pages/contact.css";
 
 @import "components/navbar.css";
 @import "components/footer.css";
 @import "components/contact-links.css";
+@import "components/project-card.css";

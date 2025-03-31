@@ -4,13 +4,14 @@ export const Metadata: Tab = {
   name: "metadata",
   fields: [
     {
+      name: "order",
+      type: "number",
+    },
+    {
       name: "slug",
       type: "text",
       required: true,
-    },
-    {
-      name: "order",
-      type: "number",
+      unique: true
     },
     {
       name: "customCreatedDate",
@@ -19,6 +20,16 @@ export const Metadata: Tab = {
     {
       name: "customUpdatedDate",
       type: "date",
+    },
+    {
+      name: "tags",
+      type: "array",
+      fields: [
+        {
+          name: "tag",
+          type: "text"
+        }
+      ]
     }
   ],
 };

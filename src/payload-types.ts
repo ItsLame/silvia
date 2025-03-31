@@ -180,12 +180,19 @@ export interface Project {
     } | null;
     repoLink?: string | null;
     demoLink?: string | null;
+    videoLink?: string | null;
   };
   metadata: {
-    slug: string;
     order?: number | null;
+    slug: string;
     customCreatedDate?: string | null;
     customUpdatedDate?: string | null;
+    tags?:
+      | {
+          tag?: string | null;
+          id?: string | null;
+        }[]
+      | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -215,10 +222,16 @@ export interface Blog {
     };
   };
   metadata: {
-    slug: string;
     order?: number | null;
+    slug: string;
     customCreatedDate?: string | null;
     customUpdatedDate?: string | null;
+    tags?:
+      | {
+          tag?: string | null;
+          id?: string | null;
+        }[]
+      | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -335,14 +348,21 @@ export interface ProjectsSelect<T extends boolean = true> {
         body?: T;
         repoLink?: T;
         demoLink?: T;
+        videoLink?: T;
       };
   metadata?:
     | T
     | {
-        slug?: T;
         order?: T;
+        slug?: T;
         customCreatedDate?: T;
         customUpdatedDate?: T;
+        tags?:
+          | T
+          | {
+              tag?: T;
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
@@ -361,10 +381,16 @@ export interface BlogsSelect<T extends boolean = true> {
   metadata?:
     | T
     | {
-        slug?: T;
         order?: T;
+        slug?: T;
         customCreatedDate?: T;
         customUpdatedDate?: T;
+        tags?:
+          | T
+          | {
+              tag?: T;
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;

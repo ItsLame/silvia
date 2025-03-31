@@ -38,6 +38,10 @@ export const Projects: CollectionConfig = {
             {
               name: "demoLink",
               type: "text"
+            },
+            {
+              name: "videoLink",
+              type: "text"
             }
           ]
         },

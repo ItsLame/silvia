@@ -1,0 +1,13 @@
+.projects main {
+  .projects-section h1 {
+    @apply text-orange-500 dark:text-orange-300;
+  }
+
+  .projects-section .projects-container {
+    @apply mt-8 md:columns-2 lg:columns-3 gap-x-4;
+
+    & > * {
+      @apply break-inside-avoid;
+    }
+  }
+}
