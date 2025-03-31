@@ -6,8 +6,8 @@
   @apply py-6 px-8 rounded-2xl mb-4 bg-orange-300 bg-opacity-30
   transition-shadow
   hover:transition-shadow
-  shadow-[inset_0_0_0_0,0_2px_4px_0_#9a3412]
-  hover:shadow-[inset_0_2px_4px_0_#9a3412,0_0_0_0];
+  shadow-[inset_0_0_0_0_#9a3412,0_2px_4px_0px_#9a3412]
+  hover:shadow-[inset_0_2px_4px_1px_#9a3412,0_0_0_0_#9a3412];
 
   .project-card-title {
     @apply text-orange-700 dark:text-orange-300;
@@ -22,8 +22,7 @@
   .project-card .project-card-content {
     @apply
     transition-all
-    shadow-[inset_0_0_0_0,0_2px_4px_1px_black]
-    hover:shadow-[inset_0_2px_4px_1px_black,0_0_0_0]
-    hover:transition-shadow duration-1000;
+    shadow-[inset_0_0_0_0_black,0_2px_4px_1px_black]
+    hover:shadow-[inset_0_2px_4px_2px_black,0_0_0_0_black]
   }
 }

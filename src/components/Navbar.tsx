@@ -12,7 +12,7 @@ const NavbarButton = ({ children, className = "", link = "", newTab = false } : 
   return (
     <Link className={`menu-link ${className} ${isCurrentPage ? "active" : ""}`}
       href={link} target={newTab ? "_blank" : "_self"}>
-      {children}
+      {children} {newTab && <IconExternalLink className="w-4 h-4" />}
     </Link>
   );
 };
@@ -48,13 +48,14 @@ const Navbar = () => {
       </div>
       <ul className={`menu-links ${isBurgerOpened ? "opened" : ""}`}>
         <li><NavbarButton link="/">hello</NavbarButton></li>
-        <li><NavbarButton link="/projects">projects</NavbarButton></li>
+        <li><NavbarButton className="projects-nav-link" link="/projects">projects</NavbarButton></li>
         {/*<li><NavbarButton link="/blogs">blogs</NavbarButton></li>*/}
         <li><NavbarButton link="/contact">contact</NavbarButton></li>
-        <li><NavbarButton className="external-link" newTab
-          link="https://1drv.ms/b/s!AhwQNlQ3dXFki9Mb_6-DoKFMd1LEvA?e=qyMNkN">
-            resume <IconExternalLink />
-        </NavbarButton></li>
+        <li>
+          <NavbarButton newTab link="https://1drv.ms/b/s!AhwQNlQ3dXFki9Mb_6-DoKFMd1LEvA?e=qyMNkN">
+            resume
+          </NavbarButton>
+        </li>
         {/*<li><DarkModeToggle /></li>*/}
       </ul>
     </nav>

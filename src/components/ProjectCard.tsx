@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 const LinkButton = ({ children, link, external } : {children?: ReactNode, link?: string, external?: true}) => {
   return (
-    <a href={link} target={external ? "_blank" : "_self"} className="py-2 px-4 min-w-[72px] bg-orange-500 bg-opacity-30 rounded-full hover:text-orange-600">
+    <a href={link} target={external ? "_blank" : "_self"} className="py-2 px-4 min-w-[72px] bg-orange-500 bg-opacity-30 rounded-full hover:text-orange-600 dark:hover:text-orange-300">
       <div className="flex justify-center">
         {children} {external && <IconExternalLink className="w-4 h-4" />}
       </div>
