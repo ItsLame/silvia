@@ -69,7 +69,7 @@
       @apply text-red-600 dark:text-red-300;
 
       &.projects-nav-link {
-        @apply text-orange-600;
+        @apply text-orange-600 dark:text-orange-300;
       }
     }
 
@@ -80,7 +80,8 @@
       dark:shadow-black dark:bg-orange-950;
 
       &.projects-nav-link {
-        @apply  shadow-orange-600 text-orange-600 bg-orange-200 dark:bg-orange-950 dark:shadow-black;
+        @apply shadow-orange-600 text-orange-600 bg-orange-200
+         dark:text-orange-300 dark:bg-orange-950 dark:shadow-black;
       }
     }
   }
