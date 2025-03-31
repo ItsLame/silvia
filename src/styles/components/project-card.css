@@ -9,7 +9,7 @@
   hover:bg-opacity-45;
 
   .project-card-title {
-    @apply text-orange-700 dark:text-orange-300;
+    @apply text-orange-800 dark:text-orange-300;
   }
 
   .project-card-links {

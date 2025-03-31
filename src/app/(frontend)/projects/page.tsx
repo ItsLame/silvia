@@ -41,7 +41,7 @@ const Projects = async () => {
                   techStack={post.metadata.tags}
                 />
               ))
-              : "no projects found..."
+              : <p>no projects found...</p>
             }
           </div>
         </section>
