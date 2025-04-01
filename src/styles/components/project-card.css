@@ -15,12 +15,26 @@
   .project-card-links {
     @apply flex gap-2 mt-4;
   }
+
+  .project-card-links .project-card-link {
+    @apply py-2 px-4 min-w-[72px] bg-orange-500 bg-opacity-30 rounded-full
+    hover:text-orange-600 dark:hover:text-orange-300;
+  }
+
+  .project-card-tags {
+    @apply flex gap-2 mb-2 flex-wrap;
+  }
+
+  .project-card-tags .project-card-tag {
+    @apply flex py-1 px-2 w-fit rounded-lg text-xs bg-orange-900 text-orange-900 bg-opacity-15
+    dark:text-orange-400 dark:bg-opacity-50 lowercase;
+  }
 }
 
 @media(prefers-color-scheme: dark) {
   .project-card .project-card-content {
     @apply transition-shadow
-    shadow-[inset_0_0_0_0_black,0_2px_4px_1px_black]
+    shadow-[inset_0_0_0_0_black,0_2px_4px_0_black]
     hover:shadow-[inset_0_2px_4px_1px_black,0_0_0_0_black]
     hover:bg-opacity-15;
   }

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ProjectTag = ({ children }:{children?: ReactNode}) => {
   return (
-    <div className="flex text-xs bg-orange-900 text-orange-900 bg-opacity-15 dark:text-orange-400 dark:bg-opacity-50 py-1 px-2 w-fit rounded-lg">
+    <div className="project-card-tag">
       {children}
     </div>
   );
@@ -12,7 +12,7 @@ const ProjectTag = ({ children }:{children?: ReactNode}) => {
 
 const ProjectLink = ({ children, link, newTab } : {children?: ReactNode, link: string, newTab?: true}) => {
   return (
-    <Link href={link} target={newTab ? "_blank" : "_self"} className="py-2 px-4 min-w-[72px] bg-orange-500 bg-opacity-30 rounded-full hover:text-orange-600 dark:hover:text-orange-300">
+    <Link href={link} target={newTab ? "_blank" : "_self"} className="project-card-link">
       <div className="flex justify-center">
         {children} {newTab && <IconExternalLink className="w-4 h-4" />}
       </div>
@@ -26,7 +26,7 @@ const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, techSt
       <div className="project-card-content">
         <h3 className="project-card-title">{title}</h3>
         {techStack && techStack.length > 0 && (
-          <div className="project-card-tags flex gap-2 mb-2 flex-wrap">
+          <div className="project-card-tags">
             {techStack.map(tag =>
               <ProjectTag key={tag.id}>{tag.tag}</ProjectTag>
             )}

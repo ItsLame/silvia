@@ -47,5 +47,5 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: '🤘 preview!\n\n🤡 ${{ needs.build-deploy.outputs.preview-link }}'
+            body: '🤡 preview!\n${{ needs.build-deploy.outputs.preview-link }}'
           })

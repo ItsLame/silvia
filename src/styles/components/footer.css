@@ -3,13 +3,8 @@ footer {
     @apply py-4 px-8 min-h-[75px] rounded-2xl text-sm
     flex justify-center items-center gap-4
     flex-col sm:flex-row
-
-    bg-red-300
-    bg-opacity-30
-    backdrop-blur-md
-
-    dark:bg-red-800
-    dark:bg-opacity-50;
+    bg-red-300 bg-opacity-30 backdrop-blur-md
+    dark:bg-red-800 dark:bg-opacity-50;
 
     .footer-content-header {
       @apply font-semibold text-red-800 dark:text-red-300;
