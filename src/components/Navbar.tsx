@@ -36,7 +36,7 @@ const Navbar = () => {
         {/*<li><NavbarButton link="/blogs">blogs</NavbarButton></li>*/}
         <li><NavbarLink link="/contact">contact</NavbarLink></li>
         <li>
-          <NavbarLink newTab link="https://1drv.ms/b/s!AhwQNlQ3dXFki9Y9oc1PhozlhFSlkQ?e=45MUqd">
+          <NavbarLink newTab link="/silvia_resume.pdf">
             resume
           </NavbarLink>
         </li>
