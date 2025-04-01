@@ -8,10 +8,10 @@ const Projects = async () => {
     collection: "projects",
     select:  {
       metadata: { slug: true, tags: true },
-      content: { title: true, description: true, repoLink: true, demoLink: true, videoLink: true }
+      content: { title: true, description: true, repoLink: true, demoLink: true, videoLink: true, designLink: true, paperLink: true }
     },
     page: 1,
-    limit: 5,
+    limit: 10,
     pagination: true,
     sort: "-metadata.order"
   });
@@ -38,6 +38,8 @@ const Projects = async () => {
                   repoLink={post.content.repoLink}
                   demoLink={post.content.demoLink}
                   videoLink={post.content.videoLink}
+                  designLink={post.content.designLink}
+                  paperLink={post.content.paperLink}
                   techStack={post.metadata.tags}
                 />
               ))

@@ -1,4 +1,4 @@
-import { IconBrandYoutube, IconCode, IconExternalLink, IconPlayerPlay } from "@tabler/icons-react";
+import { IconBrandYoutube, IconBrush, IconCode, IconExternalLink, IconNote, IconPlayerPlay } from "@tabler/icons-react";
 import { ReactNode } from "react";
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ const ProjectLink = ({ children, link, newTab } : {children?: ReactNode, link: s
   );
 };
 
-const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, techStack }: {title: string, description?: string | null, repoLink?: string | null, demoLink?: string | null, videoLink?: string | null, techStack?: { id?: string | null, tag?: string | null }[] | null }) => {
+const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, designLink, paperLink, techStack }: {title: string, description?: string | null, repoLink?: string | null, demoLink?: string | null, videoLink?: string | null, designLink?: string | null, paperLink?: string | null, techStack?: { id?: string | null, tag?: string | null }[] | null }) => {
   return (
     <div className="project-card">
       <div className="project-card-content">
@@ -47,6 +47,16 @@ const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, techSt
           {repoLink &&
             <ProjectLink link={repoLink} newTab>
               <IconCode />
+            </ProjectLink>
+          }
+          {designLink &&
+            <ProjectLink link={designLink} newTab>
+              <IconBrush />
+            </ProjectLink>
+          }
+          {paperLink &&
+            <ProjectLink link={paperLink} newTab>
+              <IconNote />
             </ProjectLink>
           }
         </div>

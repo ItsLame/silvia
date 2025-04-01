@@ -36,7 +36,7 @@ const Navbar = () => {
         {/*<li><NavbarButton link="/blogs">blogs</NavbarButton></li>*/}
         <li><NavbarLink link="/contact">contact</NavbarLink></li>
         <li>
-          <NavbarLink newTab link="/silvia_resume.pdf">
+          <NavbarLink newTab link="/silvia-resume.pdf">
             resume
           </NavbarLink>
         </li>

@@ -181,6 +181,8 @@ export interface Project {
     repoLink?: string | null;
     demoLink?: string | null;
     videoLink?: string | null;
+    designLink?: string | null;
+    paperLink?: string | null;
   };
   metadata: {
     order?: number | null;
@@ -349,6 +351,8 @@ export interface ProjectsSelect<T extends boolean = true> {
         repoLink?: T;
         demoLink?: T;
         videoLink?: T;
+        designLink?: T;
+        paperLink?: T;
       };
   metadata?:
     | T

@@ -42,6 +42,14 @@ export const Projects: CollectionConfig = {
             {
               name: "videoLink",
               type: "text"
+            },
+            {
+              name: "designLink",
+              type: "text"
+            },
+            {
+              name: "paperLink",
+              type: "text"
             }
           ]
         },
