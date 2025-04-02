@@ -1,4 +1,4 @@
-import { IconBrandYoutube, IconBrush, IconCode, IconExternalLink, IconNote, IconPlayerPlay } from "@tabler/icons-react";
+import { IconBrandYoutube, IconBrush, IconCode, IconExternalLink, IconFile, IconPlayerPlay } from "@tabler/icons-react";
 import { ReactNode } from "react";
 import Link from "next/link";
 
@@ -56,7 +56,7 @@ const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, design
           }
           {paperLink &&
             <ProjectLink link={paperLink} newTab>
-              <IconNote />
+              <IconFile />
             </ProjectLink>
           }
         </div>
