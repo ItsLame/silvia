@@ -57,7 +57,7 @@
       dark:shadow-black;
 
       &.projects-nav-link {
-        @apply shadow-orange-700 text-orange-700
+        @apply shadow-orange-700 text-orange-600
         dark:text-orange-300 dark:shadow-black;
       }
     }
