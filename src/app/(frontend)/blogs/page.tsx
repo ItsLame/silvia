@@ -9,6 +9,7 @@ const Blogs = async () => {
       metadata: { slug: true },
       content: { title: true  }
     },
+    where: { _status: { equals: "published" } },
     page: 1,
     limit: 5,
     pagination: true,

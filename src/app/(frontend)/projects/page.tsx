@@ -8,8 +8,9 @@ const Projects = async () => {
     collection: "projects",
     select:  {
       metadata: { slug: true, tags: true },
-      content: { title: true, description: true, repoLink: true, demoLink: true, videoLink: true, designLink: true, paperLink: true }
+      content: { title: true, description: true, repoLink: true, demoLink: true, videoLink: true, designLink: true, paperLink: true },
     },
+    where: { _status: { equals: "published" } },
     page: 1,
     limit: 10,
     pagination: true,

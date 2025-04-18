@@ -3,6 +3,9 @@ import { Metadata } from "@/contents/common/Metadata";
 
 export const Blogs: CollectionConfig = {
   slug: "blogs",
+  versions: {
+    drafts: true,
+  },
   access: {
     read: () => true,
   },
