@@ -5,6 +5,7 @@ export const Projects: CollectionConfig = {
   slug: "projects",
   versions: {
     drafts: true,
+    maxPerDoc: 10
   },
   access: {
     read: () => true,
@@ -60,4 +61,22 @@ export const Projects: CollectionConfig = {
       ]
     },
   ],
+  hooks: {
+    afterChange: [
+      async ({ doc, req, operation }) => {
+        if (doc._status === "published" && operation === "update") {
+          await req.payload.update({
+            collection: "projects",
+            id: doc.id,
+            data: {
+              // _status: "published",
+              ...doc.data
+            },
+            context: { skipValidation: true },
+          });
+        }
+        return doc;
+      },
+    ],
+  }
 };
