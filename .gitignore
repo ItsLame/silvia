@@ -3,6 +3,9 @@
 # vscode editor
 .vscode
 
+# 3rd party plugin for vscode editor
+.editorconfig
+
 # jetbrains ide
 .idea
 

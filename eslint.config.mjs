@@ -27,6 +27,7 @@ const eslintConfig = [
       "object-curly-spacing": ["error", "always"],
       "array-bracket-spacing": ["error", "never"],
       "quotes": ["error", "double"],
+      "jsx-quotes": ["error", "prefer-double"]
     },
     ignores: [
       "**/(payload)/**"
