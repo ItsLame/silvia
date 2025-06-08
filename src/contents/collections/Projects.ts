@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload";
 import { Metadata } from "@/contents/common/Metadata";
 import slugHook from "@/contents/hooks/slug-hook";
+import revalidateHook from "@/contents/hooks/revalidate-hook";
 
 export const Projects: CollectionConfig = {
   slug: "projects",
@@ -65,5 +66,6 @@ export const Projects: CollectionConfig = {
   ],
   hooks: {
     beforeChange: [slugHook.projects],
+    afterChange: [revalidateHook.projects],
   }
 };
