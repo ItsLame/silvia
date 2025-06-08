@@ -35,11 +35,7 @@ const Navbar = () => {
         <li><NavbarLink className="projects-nav-link" link="/projects">projects</NavbarLink></li>
         {/*<li><NavbarButton link="/blogs">blogs</NavbarButton></li>*/}
         <li><NavbarLink link="/contact">contact</NavbarLink></li>
-        <li>
-          <NavbarLink newTab link="/silvia-resume.pdf">
-            resume
-          </NavbarLink>
-        </li>
+        {/* <li><NavbarLink newTab link="/silvia-resume.pdf">resume</NavbarLink></li> */}
       </ul>
     </nav>
   );
