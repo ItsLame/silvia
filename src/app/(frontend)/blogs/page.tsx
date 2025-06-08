@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { apiClient } from "@/services/api-client";
+import { cmsClient } from "@/services/cms-client";
 
 const Blogs = async () => {
-  const posts = await apiClient.find({
+  const posts = await cmsClient.find({
     collection: "blogs",
     select:  {
       metadata: { slug: true },
