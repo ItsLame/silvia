@@ -159,6 +159,7 @@ export interface Media {
  */
 export interface Project {
   id: string;
+  _order?: string | null;
   content: {
     thumbnail?: (string | null) | Media;
     title: string;
@@ -185,7 +186,6 @@ export interface Project {
     paperLink?: string | null;
   };
   metadata: {
-    order?: number | null;
     slug: string;
     customCreatedDate?: string | null;
     customUpdatedDate?: string | null;
@@ -198,6 +198,7 @@ export interface Project {
   };
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -205,6 +206,7 @@ export interface Project {
  */
 export interface Blog {
   id: string;
+  _order?: string | null;
   content: {
     title: string;
     body: {
@@ -224,7 +226,6 @@ export interface Blog {
     };
   };
   metadata: {
-    order?: number | null;
     slug: string;
     customCreatedDate?: string | null;
     customUpdatedDate?: string | null;
@@ -237,6 +238,7 @@ export interface Blog {
   };
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -341,6 +343,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
+  _order?: T;
   content?:
     | T
     | {
@@ -357,7 +360,6 @@ export interface ProjectsSelect<T extends boolean = true> {
   metadata?:
     | T
     | {
-        order?: T;
         slug?: T;
         customCreatedDate?: T;
         customUpdatedDate?: T;
@@ -370,12 +372,14 @@ export interface ProjectsSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "blogs_select".
  */
 export interface BlogsSelect<T extends boolean = true> {
+  _order?: T;
   content?:
     | T
     | {
@@ -385,7 +389,6 @@ export interface BlogsSelect<T extends boolean = true> {
   metadata?:
     | T
     | {
-        order?: T;
         slug?: T;
         customCreatedDate?: T;
         customUpdatedDate?: T;
@@ -398,6 +401,7 @@ export interface BlogsSelect<T extends boolean = true> {
       };
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -1,19 +1,20 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { apiClient } from "@/services/api-client";
+import { cmsClient } from "@/services/cms-client";
 import ProjectCard from "@/components/ProjectCard";
 
 const Projects = async () => {
-  const posts = await apiClient.find({
+  const posts = await cmsClient.find({
     collection: "projects",
     select:  {
       metadata: { slug: true, tags: true },
-      content: { title: true, description: true, repoLink: true, demoLink: true, videoLink: true, designLink: true, paperLink: true }
+      content: { title: true, description: true, repoLink: true, demoLink: true, videoLink: true, designLink: true, paperLink: true },
     },
+    where: { _status: { equals: "published" } },
     page: 1,
     limit: 10,
     pagination: true,
-    sort: "-metadata.order"
+    sort: "_order"
   });
 
   return (

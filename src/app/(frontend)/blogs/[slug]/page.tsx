@@ -1,12 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { apiClient } from "@/services/api-client";
+import { cmsClient } from "@/services/cms-client";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 
 const Blog = async ({ params } : {params: Promise<{slug: string}>}) => {
   const { slug } = await params;
 
-  const post = await apiClient.find({
+  const post = await cmsClient.find({
     collection: "blogs",
     select: {
       metadata: { slug: true },

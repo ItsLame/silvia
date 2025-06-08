@@ -1,14 +1,15 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { apiClient } from "@/services/api-client";
+import { cmsClient } from "@/services/cms-client";
 
 const Blogs = async () => {
-  const posts = await apiClient.find({
+  const posts = await cmsClient.find({
     collection: "blogs",
     select:  {
       metadata: { slug: true },
       content: { title: true  }
     },
+    where: { _status: { equals: "published" } },
     page: 1,
     limit: 5,
     pagination: true,
