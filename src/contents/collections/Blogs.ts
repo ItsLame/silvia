@@ -3,6 +3,7 @@ import { Metadata } from "@/contents/common/Metadata";
 
 export const Blogs: CollectionConfig = {
   slug: "blogs",
+  orderable: true,
   versions: {
     drafts: true,
   },

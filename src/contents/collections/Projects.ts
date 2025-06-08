@@ -3,6 +3,7 @@ import { Metadata } from "@/contents/common/Metadata";
 
 export const Projects: CollectionConfig = {
   slug: "projects",
+  orderable: true,
   versions: {
     drafts: true,
     maxPerDoc: 10

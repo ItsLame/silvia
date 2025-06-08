@@ -159,6 +159,7 @@ export interface Media {
  */
 export interface Project {
   id: string;
+  _order?: string | null;
   content: {
     thumbnail?: (string | null) | Media;
     title: string;
@@ -206,6 +207,7 @@ export interface Project {
  */
 export interface Blog {
   id: string;
+  _order?: string | null;
   content: {
     title: string;
     body: {
@@ -343,6 +345,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
+  _order?: T;
   content?:
     | T
     | {
@@ -379,6 +382,7 @@ export interface ProjectsSelect<T extends boolean = true> {
  * via the `definition` "blogs_select".
  */
 export interface BlogsSelect<T extends boolean = true> {
+  _order?: T;
   content?:
     | T
     | {
