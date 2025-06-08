@@ -30,9 +30,17 @@ const eslintConfig = [
       "jsx-quotes": ["error", "prefer-double"]
     },
     ignores: [
-      "**/(payload)/**"
+      "src/app/(payload)/**",
     ]
   },
+  {
+    files: ["src/migrations/*"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": "off",
+      "no-unused-vars": "off",
+      "quotes": "off"
+    }
+  }
 ];
 
 export default eslintConfig;
