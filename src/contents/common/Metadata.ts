@@ -4,10 +4,6 @@ export const Metadata: Tab = {
   name: "metadata",
   fields: [
     {
-      name: "order",
-      type: "number",
-    },
-    {
       name: "slug",
       type: "text",
       required: true,

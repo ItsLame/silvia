@@ -186,7 +186,6 @@ export interface Project {
     paperLink?: string | null;
   };
   metadata: {
-    order?: number | null;
     slug: string;
     customCreatedDate?: string | null;
     customUpdatedDate?: string | null;
@@ -227,7 +226,6 @@ export interface Blog {
     };
   };
   metadata: {
-    order?: number | null;
     slug: string;
     customCreatedDate?: string | null;
     customUpdatedDate?: string | null;
@@ -362,7 +360,6 @@ export interface ProjectsSelect<T extends boolean = true> {
   metadata?:
     | T
     | {
-        order?: T;
         slug?: T;
         customCreatedDate?: T;
         customUpdatedDate?: T;
@@ -392,7 +389,6 @@ export interface BlogsSelect<T extends boolean = true> {
   metadata?:
     | T
     | {
-        order?: T;
         slug?: T;
         customCreatedDate?: T;
         customUpdatedDate?: T;
