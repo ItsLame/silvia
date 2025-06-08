@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { Metadata } from "@/contents/common/Metadata";
+import slugHook from "@/contents/hooks/slug-hook";
 
 export const Blogs: CollectionConfig = {
   slug: "blogs",
@@ -33,4 +34,7 @@ export const Blogs: CollectionConfig = {
       ],
     },
   ],
+  hooks: {
+    beforeChange: [slugHook.blogs],
+  }
 };

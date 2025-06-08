@@ -1,5 +1,6 @@
 import type { CollectionConfig } from "payload";
 import { Metadata } from "@/contents/common/Metadata";
+import slugHook from "@/contents/hooks/slug-hook";
 
 export const Projects: CollectionConfig = {
   slug: "projects",
@@ -63,21 +64,6 @@ export const Projects: CollectionConfig = {
     },
   ],
   hooks: {
-    afterChange: [
-      async ({ doc, req, operation }) => {
-        if (doc._status === "published" && operation === "update") {
-          await req.payload.update({
-            collection: "projects",
-            id: doc.id,
-            data: {
-              // _status: "published",
-              ...doc.data
-            },
-            context: { skipValidation: true },
-          });
-        }
-        return doc;
-      },
-    ],
+    beforeChange: [slugHook.projects],
   }
 };
