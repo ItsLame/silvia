@@ -27,7 +27,7 @@ const MouseTooltip  = ({ children, show }: IMouseTooltipProps) => {
 
 
   return (
-    <div className={`absolute ml-4 mt-4 ${show ? "block" : "hidden"}`}
+    <div className={`absolute ml-4 mt-4 ${show ? "hide-on-mobile" : "hidden"}`}
       style={{ left: `${tooltipPos.x}px`, top: `${tooltipPos.y}px` }}
     >
       {children}
