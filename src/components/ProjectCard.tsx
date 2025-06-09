@@ -1,8 +1,29 @@
 import { IconBrandYoutube, IconBrush, IconCode, IconExternalLink, IconFile, IconPlayerPlay } from "@tabler/icons-react";
-import { ReactNode } from "react";
+import React from "react";
 import Link from "next/link";
+import { BaseChildrenProps, NullableString } from "@/models";
 
-const ProjectTag = ({ children }:{children?: ReactNode}) => {
+interface ProjectTagProps extends BaseChildrenProps {}
+
+interface ProjectLinkProps extends BaseChildrenProps {
+  link: string,
+  newTab?: true,
+  tooltipHandler?: MouseTooltipHandler
+}
+
+interface ProjectCardProps {
+  title: string,
+  description?: NullableString,
+  repoLink?: NullableString,
+  demoLink?: NullableString,
+  videoLink?: NullableString,
+  designLink?: NullableString,
+  paperLink?: NullableString,
+  techStack?: { id?: NullableString, tag?: NullableString }[] | null,
+  tooltipHandler?: MouseTooltipHandler
+}
+
+const ProjectTag = ({ children }: ProjectTagProps) => {
   return (
     <div className="project-card-tag">
       {children}
@@ -10,8 +31,17 @@ const ProjectTag = ({ children }:{children?: ReactNode}) => {
   );
 };
 
-const ProjectLink = ({ children, link, newTab } : {children?: ReactNode, link: string, newTab?: true}) => {
-  const LinkContent = ({ children }:{children?: ReactNode}) => {
+const ProjectLink = ({ children, link, newTab, tooltipHandler }: ProjectLinkProps) => {
+  const handleShowTooltip = () => {
+    tooltipHandler?.updateVisibility(true);
+    tooltipHandler?.updateText(link);
+  };
+
+  const handleHideTooltip = () => {
+    tooltipHandler?.updateVisibility(false);
+  };
+
+  const LinkContent = ({ children }: BaseChildrenProps) => {
     return (
       <div className="project-card-link-content">
         {children}
@@ -20,7 +50,9 @@ const ProjectLink = ({ children, link, newTab } : {children?: ReactNode, link: s
   };
 
   return (
-    <Link href={link} target={newTab ? "_blank" : "_self"} className="project-card-link">
+    <Link href={link} target={newTab ? "_blank" : "_self"} className="project-card-link"
+      onMouseEnter={handleShowTooltip} onMouseLeave={handleHideTooltip}
+    >
       <div className="project-card-link-content-container">
         <LinkContent>{children}</LinkContent> {newTab && <IconExternalLink className="w-4 h-4 hide-on-mobile" />}
       </div>
@@ -28,7 +60,7 @@ const ProjectLink = ({ children, link, newTab } : {children?: ReactNode, link: s
   );
 };
 
-const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, designLink, paperLink, techStack }: {title: string, description?: string | null, repoLink?: string | null, demoLink?: string | null, videoLink?: string | null, designLink?: string | null, paperLink?: string | null, techStack?: { id?: string | null, tag?: string | null }[] | null }) => {
+const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, designLink, paperLink, techStack, tooltipHandler }: ProjectCardProps) => {
   return (
     <div className="project-card">
       <div className="project-card-content">
@@ -43,31 +75,31 @@ const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, design
         <p>{description}</p>
         <div className="project-card-links">
           {videoLink &&
-            <ProjectLink link={videoLink} newTab>
+            <ProjectLink link={videoLink} tooltipHandler={tooltipHandler} newTab>
               <IconBrandYoutube />
               <span className="hide-on-desktop">video</span>
             </ProjectLink>
           }
           {demoLink &&
-            <ProjectLink link={demoLink} newTab>
+            <ProjectLink link={demoLink} tooltipHandler={tooltipHandler} newTab>
               <IconPlayerPlay />
               <span className="hide-on-desktop">demo</span>
             </ProjectLink>
           }
           {repoLink &&
-            <ProjectLink link={repoLink} newTab>
+            <ProjectLink link={repoLink} tooltipHandler={tooltipHandler} newTab>
               <IconCode />
               <span className="hide-on-desktop">code</span>
             </ProjectLink>
           }
           {designLink &&
-            <ProjectLink link={designLink} newTab>
+            <ProjectLink link={designLink} tooltipHandler={tooltipHandler} newTab>
               <IconBrush />
               <span className="hide-on-desktop">design</span>
             </ProjectLink>
           }
           {paperLink &&
-            <ProjectLink link={paperLink} newTab>
+            <ProjectLink link={paperLink} tooltipHandler={tooltipHandler} newTab>
               <IconFile />
               <span className="hide-on-desktop">paper</span>
             </ProjectLink>

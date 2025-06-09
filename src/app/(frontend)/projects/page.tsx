@@ -1,7 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { cmsClient } from "@/services/cms-client";
-import ProjectCard from "@/components/ProjectCard";
+import React from "react";
+import ProjectCards from "@/components/ProjectCards";
 
 const Projects = async () => {
   const posts = await cmsClient.find({
@@ -29,24 +30,7 @@ const Projects = async () => {
           <p>
             Stuff I&apos;ve built, including this website!
           </p>
-          <div className="projects-container">
-            {posts.docs.length > 0
-              ? posts.docs.map((post) => (
-                <ProjectCard
-                  key={post.id}
-                  title={post.content.title}
-                  description={post.content.description}
-                  repoLink={post.content.repoLink}
-                  demoLink={post.content.demoLink}
-                  videoLink={post.content.videoLink}
-                  designLink={post.content.designLink}
-                  paperLink={post.content.paperLink}
-                  techStack={post.metadata.tags}
-                />
-              ))
-              : <p>no projects found...</p>
-            }
-          </div>
+          <ProjectCards projects={posts}/>
         </section>
       </main>
 
