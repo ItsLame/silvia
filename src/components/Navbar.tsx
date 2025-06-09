@@ -20,9 +20,7 @@ const NavbarLink = ({ children, className = "", link = "", newTab } : {children?
 const Navbar = () => {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
 
-  const handleBurgerClick = () => {
-    setIsBurgerOpened(!isBurgerOpened);
-  };
+  const handleBurgerClick = () => setIsBurgerOpened(!isBurgerOpened);
 
   return (
     <nav className="navbar">
@@ -35,7 +33,6 @@ const Navbar = () => {
         <li><NavbarLink className="projects-nav-link" link="/projects">projects</NavbarLink></li>
         {/*<li><NavbarButton link="/blogs">blogs</NavbarButton></li>*/}
         <li><NavbarLink link="/contact">contact</NavbarLink></li>
-        {/* <li><NavbarLink newTab link="/silvia-resume.pdf">resume</NavbarLink></li> */}
       </ul>
     </nav>
   );

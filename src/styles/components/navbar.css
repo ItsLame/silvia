@@ -14,9 +14,10 @@
 }
 
 .navbar .logo .burger-menu {
-  @apply font-semibold md:hidden;
+  @apply font-semibold md:hidden
+  transition-colors ease-in-out duration-200;
 
-  &:hover,
+  /*&:hover,*/
   &.opened {
     @apply text-red-600 dark:text-red-300;
   }
@@ -28,18 +29,21 @@
   transition-[max-height,margin-top] duration-300;
 
   &:not(&.opened) {
-    @apply h-0 max-h-0 md:h-full md:max-h-full;
+    @apply h-0 md:h-full
+    max-h-0 md:max-h-full
+    transition-[max-height,margin-top] duration-300;
   }
 
   &.opened {
-    @apply max-h-60 mt-4
+    @apply h-full
+    max-h-60 mt-4
     md:max-h-full md:mt-0
     transition-[max-height,margin-top] duration-300;
   }
 
   a.menu-link {
     @apply flex gap-1 py-2 px-4 rounded-full
-    transition ease-in-out duration-200 font-semibold;
+    transition-colors ease-in-out duration-200 font-semibold;
 
     &.active,
     &:hover {
