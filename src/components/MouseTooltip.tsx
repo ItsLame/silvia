@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BaseChildrenProps } from "@/models";
+import { IBaseChildrenProps } from "@/models";
 
-interface MouseTooltipProps extends BaseChildrenProps {
+interface IMouseTooltipProps extends IBaseChildrenProps {
   show?: boolean
 }
 
-const MouseTooltip  = ({ children, show }: MouseTooltipProps) => {
+const MouseTooltip  = ({ children, show }: IMouseTooltipProps) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [scrollPos, setScrollPos] = useState({ x: 0, y: 0 });
   const tooltipPos = { x: mousePos.x + scrollPos.x, y: mousePos.y + scrollPos.y };

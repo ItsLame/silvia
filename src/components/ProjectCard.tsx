@@ -1,17 +1,17 @@
 import { IconBrandYoutube, IconBrush, IconCode, IconExternalLink, IconFile, IconPlayerPlay } from "@tabler/icons-react";
 import React from "react";
 import Link from "next/link";
-import { BaseChildrenProps, NullableString } from "@/models";
+import { IBaseChildrenProps, NullableString } from "@/models";
 
-interface ProjectTagProps extends BaseChildrenProps {}
+interface IProjectTagProps extends IBaseChildrenProps {}
 
-interface ProjectLinkProps extends BaseChildrenProps {
+interface IProjectLinkProps extends IBaseChildrenProps {
   link: string,
   newTab?: true,
-  tooltipHandler?: MouseTooltipHandler
+  tooltipHandler?: IMouseTooltipHandler
 }
 
-interface ProjectCardProps {
+interface IProjectCardProps {
   title: string,
   description?: NullableString,
   repoLink?: NullableString,
@@ -20,10 +20,10 @@ interface ProjectCardProps {
   designLink?: NullableString,
   paperLink?: NullableString,
   techStack?: { id?: NullableString, tag?: NullableString }[] | null,
-  tooltipHandler?: MouseTooltipHandler
+  tooltipHandler?: IMouseTooltipHandler
 }
 
-const ProjectTag = ({ children }: ProjectTagProps) => {
+const ProjectTag = ({ children }: IProjectTagProps) => {
   return (
     <div className="project-card-tag">
       {children}
@@ -31,7 +31,7 @@ const ProjectTag = ({ children }: ProjectTagProps) => {
   );
 };
 
-const ProjectLink = ({ children, link, newTab, tooltipHandler }: ProjectLinkProps) => {
+const ProjectLink = ({ children, link, newTab, tooltipHandler }: IProjectLinkProps) => {
   const handleShowTooltip = () => {
     tooltipHandler?.updateVisibility(true);
     tooltipHandler?.updateText(link);
@@ -41,7 +41,7 @@ const ProjectLink = ({ children, link, newTab, tooltipHandler }: ProjectLinkProp
     tooltipHandler?.updateVisibility(false);
   };
 
-  const LinkContent = ({ children }: BaseChildrenProps) => {
+  const LinkContent = ({ children }: IBaseChildrenProps) => {
     return (
       <div className="project-card-link-content">
         {children}
@@ -60,7 +60,7 @@ const ProjectLink = ({ children, link, newTab, tooltipHandler }: ProjectLinkProp
   );
 };
 
-const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, designLink, paperLink, techStack, tooltipHandler }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, designLink, paperLink, techStack, tooltipHandler }: IProjectCardProps) => {
   return (
     <div className="project-card">
       <div className="project-card-content">

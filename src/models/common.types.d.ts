@@ -1,6 +1,6 @@
 import { ReactElement, ReactNode } from "react";
 
-interface BaseChildrenProps {
+interface IBaseChildrenProps {
   children?: ReactNode | ReactElement | string,
 }
 

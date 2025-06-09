@@ -9,7 +9,7 @@ const ProjectCards = ({ projects }: { projects: PaginatedDocs }) => {
   const [tooltipText, setTooltipText] = useState("i like kway teow");
   const [isTooltipShow, setTooltipShow] = useState(false);
 
-  const tooltipHandler: MouseTooltipHandler = {
+  const tooltipHandler: IMouseTooltipHandler = {
     updateText: (text: string) => setTooltipText(text),
     updateVisibility: (show: boolean) => setTooltipShow(show),
   };
