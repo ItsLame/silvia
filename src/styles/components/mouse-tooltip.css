@@ -1,0 +1,15 @@
+.mouse-tooltip {
+  @apply absolute z-50 -ml-6 mt-10
+    drop-shadow-[0px_0px_4px_rgba(124,45,18,0.5)]
+  bg-orange-100 px-4 py-2 rounded-lg;
+}
+
+.mouse-tooltip:before {
+  content: "";
+  @apply absolute border-solid border-[12px]
+  border-b-orange-100
+  border-r-transparent
+  border-l-transparent
+  border-t-transparent
+  top-[-22px];
+}

@@ -36,7 +36,7 @@ const ProjectTag = ({ children }: IProjectTagProps) => {
 const ProjectLink = ({ link, linkText, icon, newTab, tooltipHandler }: IProjectLinkProps) => {
   const handleShowTooltip = () => {
     tooltipHandler?.updateVisibility(true);
-    tooltipHandler?.updateText(`${linkText}` || "");
+    tooltipHandler?.updateText(`${linkText}` || "view");
   };
 
   const handleHideTooltip = () => {
