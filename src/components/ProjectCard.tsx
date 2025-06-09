@@ -1,7 +1,7 @@
 import { IconBrandYoutube, IconBrush, IconCode, IconExternalLink, IconFile, IconPlayerPlay } from "@tabler/icons-react";
 import React, { ReactNode } from "react";
 import Link from "next/link";
-import { IBaseChildrenProps, NullableString } from "@/models";
+import { IBaseChildrenProps, IMouseTooltipHandler, NullableString } from "@/models";
 
 interface IProjectTagProps extends IBaseChildrenProps {}
 

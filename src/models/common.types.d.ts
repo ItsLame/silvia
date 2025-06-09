@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from "react";
 
-interface IBaseChildrenProps {
+export interface IBaseChildrenProps {
   children?: ReactNode | ReactElement | string,
 }
 
-type NullableString = string | null;
+export type NullableString = string | null;
