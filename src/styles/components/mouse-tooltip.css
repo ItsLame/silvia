@@ -1,13 +1,14 @@
 .mouse-tooltip {
   @apply absolute z-50 -ml-6 mt-10
-    drop-shadow-[0px_0px_4px_rgba(124,45,18,0.5)]
-  bg-orange-100 px-4 py-2 rounded-lg;
+  drop-shadow-[0px_0px_4px_rgba(124,45,18,0.5)]
+  bg-orange-100 px-4 py-2 rounded-lg
+  dark:bg-orange-900 dark:drop-shadow-[0px_0px_4px_rgba(0,0,0,0.8)];
 }
 
 .mouse-tooltip:before {
   content: "";
   @apply absolute border-solid border-[12px]
-  border-b-orange-100
+  border-b-orange-100 dark:border-b-orange-900
   border-r-transparent
   border-l-transparent
   border-t-transparent
