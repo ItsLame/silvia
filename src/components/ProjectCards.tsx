@@ -4,6 +4,8 @@ import MouseTooltip from "@/components/MouseTooltip";
 import React, { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
 import { PaginatedDocs } from "payload";
+import { IMouseTooltipHandler } from "@/models";
+
 
 const ProjectCards = ({ projects }: { projects: PaginatedDocs }) => {
   const [tooltipText, setTooltipText] = useState("i like kway teow");
