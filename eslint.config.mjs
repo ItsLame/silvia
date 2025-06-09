@@ -15,7 +15,8 @@ const eslintConfig = [
     rules: {
       "indent": ["error", 2],
       "eol-last": ["error", "always"],
-      "no-unused-vars": ["error", {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["error", {
         "argsIgnorePattern": "^_",
       }],
       "no-trailing-spaces": "error",
@@ -27,7 +28,8 @@ const eslintConfig = [
       "object-curly-spacing": ["error", "always"],
       "array-bracket-spacing": ["error", "never"],
       "quotes": ["error", "double"],
-      "jsx-quotes": ["error", "prefer-double"]
+      "jsx-quotes": ["error", "prefer-double"],
+      "@typescript-eslint/no-empty-object-type": "off"
     },
     ignores: [
       "src/app/(payload)/**",
