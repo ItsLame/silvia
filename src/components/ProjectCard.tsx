@@ -11,10 +11,18 @@ const ProjectTag = ({ children }:{children?: ReactNode}) => {
 };
 
 const ProjectLink = ({ children, link, newTab } : {children?: ReactNode, link: string, newTab?: true}) => {
+  const LinkContent = ({ children }:{children?: ReactNode}) => {
+    return (
+      <div className="project-card-link-content">
+        {children}
+      </div>
+    );
+  };
+
   return (
     <Link href={link} target={newTab ? "_blank" : "_self"} className="project-card-link">
-      <div className="flex justify-center">
-        {children} {newTab && <IconExternalLink className="w-4 h-4" />}
+      <div className="project-card-link-content-container">
+        <LinkContent>{children}</LinkContent> {newTab && <IconExternalLink className="w-4 h-4 hide-on-mobile" />}
       </div>
     </Link>
   );
@@ -37,26 +45,31 @@ const ProjectCard = ({ title, description, repoLink, demoLink, videoLink, design
           {videoLink &&
             <ProjectLink link={videoLink} newTab>
               <IconBrandYoutube />
+              <span className="hide-on-desktop">video</span>
             </ProjectLink>
           }
           {demoLink &&
             <ProjectLink link={demoLink} newTab>
               <IconPlayerPlay />
+              <span className="hide-on-desktop">demo</span>
             </ProjectLink>
           }
           {repoLink &&
             <ProjectLink link={repoLink} newTab>
               <IconCode />
+              <span className="hide-on-desktop">code</span>
             </ProjectLink>
           }
           {designLink &&
             <ProjectLink link={designLink} newTab>
               <IconBrush />
+              <span className="hide-on-desktop">design</span>
             </ProjectLink>
           }
           {paperLink &&
             <ProjectLink link={paperLink} newTab>
               <IconFile />
+              <span className="hide-on-desktop">paper</span>
             </ProjectLink>
           }
         </div>

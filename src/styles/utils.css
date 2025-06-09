@@ -1,0 +1,7 @@
+.hide-on-mobile {
+  @apply md:block hidden;
+}
+
+.hide-on-desktop {
+  @apply md:hidden;
+}

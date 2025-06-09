@@ -19,6 +19,14 @@
   .project-card-links .project-card-link {
     @apply py-2 px-4 min-w-[72px] bg-orange-500 bg-opacity-30 rounded-full
     hover:text-orange-600 dark:hover:text-orange-300;
+
+    .project-card-link-content-container {
+      @apply flex justify-center gap-1;
+    }
+
+    .project-card-link-content-container .project-card-link-content {
+      @apply flex gap-1;
+    }
   }
 
   .project-card-tags {
