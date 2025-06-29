@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Providers from "@/hooks/Providers";
 
 export const metadata: Metadata = {
   title: "Silvia Tan - Software Engineer",
@@ -9,18 +10,17 @@ export const metadata: Metadata = {
   keywords: "Silvia, Silvia Silvia, Silvia Tan, Portfolio, Software Engineer, Full Stack, Startup, Web, Frontend",
 };
 
-const RootLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+const RootLayout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png"/>
+        <title>{`${metadata.title}`}</title>
+        <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
       <body className="antialiased">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <Analytics />
         <SpeedInsights />
       </body>
