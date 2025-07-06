@@ -42,6 +42,7 @@ interface IThemeProvider {
   children: ReactNode;
 }
 
+// note: use of `window` (i think?) in this provider might cause hydration issues, so need to be dynamically loaded when used
 export const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
   const [theme, setTheme] = useState<Theme> (() => {
     if (typeof window === "undefined") return defaultTheme;
@@ -65,7 +66,7 @@ export const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
   const handleDarkTheme = () => setTheme(Theme.Dark);
 
   const getTheme = () => {
-    if (theme !== Theme.System) return theme;
+    if (typeof window === "undefined" || theme !== Theme.System) return theme;
     const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     return systemDark ? Theme.Dark : Theme.Light;
   };
