@@ -23,27 +23,14 @@ interface IThemeContext {
 
 const defaultTheme = Theme.System;
 
-const ThemeProviderContext = createContext<IThemeContext>({
-  theme: defaultTheme,
-  handler: {
-    toggle: () => {},
-    system: () => {},
-    light: () => {},
-    dark: () => {},
-  },
-  status: {
-    isSystem: false,
-    isLight: false,
-    isDark: false,
-  },
-});
+const ThemeProviderContext = createContext<IThemeContext|undefined>(undefined);
 
 interface IThemeProvider {
   children: ReactNode;
 }
 
 // note: use of `window` (i think?) in this provider might cause hydration issues, so need to be dynamically loaded when used
-export const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
+const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
   const [theme, setTheme] = useState<Theme> (() => {
     if (typeof window === "undefined") return defaultTheme;
     return (localStorage.getItem("theme") as Theme) || defaultTheme;
@@ -95,4 +82,17 @@ export const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
   );
 };
 
-export const useTheme = () => useContext(ThemeProviderContext);
+/*
+ * @legacy Old implementation of theme provider/switcher.
+ * Use themeAtom instead.
+*/
+const useTheme = () => {
+  const context = useContext(ThemeProviderContext);
+  if (context == null) throw new Error("useTheme must be used within ThemeProvider.");
+  return context;
+};
+
+export {
+  ThemeProvider,
+  useTheme,
+};
