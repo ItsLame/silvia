@@ -7,7 +7,7 @@ const Blogs = async () => {
     collection: "blogs",
     select:  {
       metadata: { slug: true },
-      content: { title: true  }
+      content: { title: true },
     },
     where: { _status: { equals: "published" } },
     page: 1,

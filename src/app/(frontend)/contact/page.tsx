@@ -17,7 +17,7 @@ const Contact = () => {
       </main>
 
       <footer>
-        <Footer hideContent/>
+        <Footer hideContent />
       </footer>
     </div>
   );

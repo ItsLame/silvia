@@ -10,9 +10,9 @@ const Blog = async ({ params } : {params: Promise<{slug: string}>}) => {
     collection: "blogs",
     select: {
       metadata: { slug: true },
-      content: { title: true, body: true }
+      content: { title: true, body: true },
     },
-    where: { "metadata.slug": { "equals": slug } }
+    where: { "metadata.slug": { "equals": slug } },
   });
 
   const content = post.docs[0].content;
