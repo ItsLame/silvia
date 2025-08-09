@@ -1,3 +1,5 @@
+"use client";
+
 import { IconDeviceDesktop, IconMoon, IconSun } from "@tabler/icons-react";
 import { useAtomValue, useSetAtom } from "jotai";
 import { themeAtom } from "@/atoms/themeAtom";

@@ -7,22 +7,37 @@ enum Theme {
   Dark = "dark",
 }
 
-const localThemeAtom = atomWithStorage("theme", Theme.System);
-
-const getTheme = (theme: Theme) => {
-  if (typeof window === "undefined" || theme !== Theme.System) return theme;
+const getSystemTheme = () => {
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   return systemDark ? Theme.Dark : Theme.Light;
 };
 
+const localThemeAtom = atomWithStorage("theme", Theme.System);
+const systemThemeAtom = atom(getSystemTheme());
+
+// track the actual system theme and update on changes
+systemThemeAtom.onMount = (set) => {
+  if (typeof window === "undefined") return;
+
+  const systemColorSchemeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+  const setSystemThemeAtom = () => set(getSystemTheme());
+
+  systemColorSchemeMedia.addEventListener("change", setSystemThemeAtom);
+  return () => systemColorSchemeMedia.removeEventListener("change", setSystemThemeAtom);
+};
+
 const themeAtom = atom(
   (get) => {
+    const localTheme = get(localThemeAtom);
+    const systemTheme = get(systemThemeAtom);
+    const resolvedTheme = localTheme === Theme.System ? systemTheme : localTheme;
+
     return {
-      theme: getTheme(get(localThemeAtom)),
+      theme: resolvedTheme,
       themeStatus: {
-        isDark: get(localThemeAtom) === Theme.Dark,
-        isLight: get(localThemeAtom) === Theme.Light,
-        isSystem: get(localThemeAtom) === Theme.System,
+        isDark: localTheme === Theme.Dark,
+        isLight: localTheme === Theme.Light,
+        isSystem: localTheme === Theme.System,
       },
     }
   },
