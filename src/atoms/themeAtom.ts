@@ -8,6 +8,8 @@ enum Theme {
 }
 
 const getSystemTheme = () => {
+  if (typeof window === "undefined") return;
+
   const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   return systemDark ? Theme.Dark : Theme.Light;
 };
@@ -39,21 +41,21 @@ const themeAtom = atom(
         isLight: localTheme === Theme.Light,
         isSystem: localTheme === Theme.System,
       },
-    }
+    };
   },
   (_get, set) => {
     set(localThemeAtom, (currTheme) => {
       switch (currTheme) {
-        case Theme.System: return Theme.Light;
-        case Theme.Light: return Theme.Dark
-        case Theme.Dark:
-        default:
-          return Theme.System
+      case Theme.System: return Theme.Light;
+      case Theme.Light: return Theme.Dark;
+      case Theme.Dark:
+      default:
+        return Theme.System;
       }
-    })
-  }
+    });
+  },
 );
 
 export {
-  themeAtom
+  themeAtom,
 };
