@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo gap-4">
-        <DarkModeToggle />
+        <DarkModeToggle desktopOnly />
         <h1>{"silvia's"}</h1>
         <button className={`burger-menu ${isBurgerOpened ? "opened" : ""}`} onClick={handleBurgerClick}>menu</button>
       </div>

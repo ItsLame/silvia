@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { cmsClient } from "@/services/cms-client";
 import React from "react";
 import ProjectCards from "@/components/ProjectCards";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
 const Projects = async () => {
   const posts = await cmsClient.find({
@@ -32,6 +33,7 @@ const Projects = async () => {
           </p>
           <ProjectCards projects={posts} />
         </section>
+        <DarkModeToggle float mobileOnly />
       </main>
 
       <footer>
