@@ -22,7 +22,7 @@ const eslintConfig = [
       "semi": ["error", "always"],
       "object-curly-spacing": ["error", "always"],
       "array-bracket-spacing": ["error", "never"],
-      "comma-dangle": ["error", "always-multiline"],
+      // "comma-dangle": ["error", "always-multiline"],
       "comma-spacing": ["error", {
         "before": false,
         "after": true,
