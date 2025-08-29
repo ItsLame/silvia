@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useAtomValue } from "jotai";
 import { themeAtom } from "@/atoms/themeAtom";
@@ -10,6 +10,13 @@ const Provider = dynamic(() => import("jotai").then((e) => e.Provider), { ssr: f
 
 const Theme = ({ children }: {children: ReactNode}) => {
   const theme = useAtomValue(themeAtom).theme;
+
+  useEffect(() => {
+    // apply theme class to html element for webkit scrollbar support
+    const htmlElement = document.documentElement;
+    htmlElement.classList.remove("light", "dark");
+    if (theme) htmlElement.classList.add(theme);
+  }, [theme]);
 
   return (
     <div className={`${theme}`}>
