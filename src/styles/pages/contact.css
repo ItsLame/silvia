@@ -4,7 +4,7 @@
   }
 
   .contact-links-section {
-    @apply sm:mx-36;
+    @apply md:mx-36 sm:mx-32;
 
     h1 {
       @apply text-5xl;

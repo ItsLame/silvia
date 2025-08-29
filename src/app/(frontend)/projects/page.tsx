@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { cmsClient } from "@/services/cms-client";
 import React from "react";
 import ProjectCards from "@/components/ProjectCards";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
 const Projects = async () => {
   const posts = await cmsClient.find({
@@ -15,7 +16,7 @@ const Projects = async () => {
     page: 1,
     limit: 10,
     pagination: true,
-    sort: "_order"
+    sort: "_order",
   });
 
   return (
@@ -30,8 +31,9 @@ const Projects = async () => {
           <p>
             Stuff I&apos;ve built, including this website!
           </p>
-          <ProjectCards projects={posts}/>
+          <ProjectCards projects={posts} />
         </section>
+        <DarkModeToggle float mobileOnly />
       </main>
 
       <footer>

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactLinks from "@/components/ContactLinks";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
 const Contact = () => {
   return (
@@ -14,10 +15,11 @@ const Contact = () => {
           <h1>connect or message me!</h1>
           <ContactLinks />
         </section>
+        <DarkModeToggle float mobileOnly />
       </main>
 
       <footer>
-        <Footer hideContent/>
+        <Footer hideContent />
       </footer>
     </div>
   );

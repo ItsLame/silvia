@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ReactNode, useState } from "react";
 import { IconExternalLink } from "@tabler/icons-react";
+import DarkModeToggle from "@/components/DarkModeToggle";
 
 const NavbarLink = ({ children, className = "", link = "", newTab } : {children?: ReactNode, className?: string, link?: string, newTab?: true}) => {
   const pathname = usePathname();
@@ -24,7 +25,8 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="logo">
+      <div className="logo gap-4">
+        <DarkModeToggle desktopOnly />
         <h1>{"silvia's"}</h1>
         <button className={`burger-menu ${isBurgerOpened ? "opened" : ""}`} onClick={handleBurgerClick}>menu</button>
       </div>
