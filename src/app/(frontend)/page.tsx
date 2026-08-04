@@ -12,7 +12,7 @@ const Home = () => {
       <main>
         <div className="intro">
           <h1>hello i&apos;m <span className="name">silvia</span></h1>
-          <p>a full stack software engineer who loves to build intuitive user-friendly web applications.</p>
+          <p>a full stack software engineer who loves to build agentic centric solutions.</p>
         </div>
         <DarkModeToggle float mobileOnly />
       </main>
